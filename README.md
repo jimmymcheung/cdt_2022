@@ -2,7 +2,7 @@
 
 
 Dit is het repo voor CDT project. 
-Onderhouden door Colin, Danae, Jimmy, Lex, Max, Nina, Sven en Yara. 
+Onderhouden door Colin, Danae, Jimmy, Lex, Nina, Sven en Jara. 
 Minor Data Science 2022.
 
 ## Onderzoeksdoel
