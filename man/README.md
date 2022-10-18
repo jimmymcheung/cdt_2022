@@ -1,0 +1,1 @@
+**Deze map sla alle handleidingen van het package op.**
