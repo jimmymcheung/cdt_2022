@@ -33,4 +33,4 @@ Vergeet niet eerst `pull` of `fetch` het repo voor dat je begin met werken!
 - `test` bevat `yaml` of andere test automatisering om de coden te checken.
 
 ## Accreditatie en License
-De gebruik van dit project wordt begeleid met AGPLv3 tenzij de gebuiker een medewerker van dit roject is. 
+De gebruik van dit project wordt begeleid met AGPLv3 tenzij de gebuiker projectlid is. 
