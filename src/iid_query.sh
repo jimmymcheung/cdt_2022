@@ -31,7 +31,12 @@ then
 fi
 
 ###### Main Programme ######
-( cd "$sc_dir" && echo "Landed at $(pwd)" ) || ( echo "No such directory" && exit )
+if [ -d "sc_dir" ]
+then
+	cd "$sc_dir" && echo "Landed at $(pwd)"
+else
+	echo "Error: No such directory"; exit 128
+fi
 if [ ! -d "$des_dir" ]
 then
         mkdir "$des_dir"
