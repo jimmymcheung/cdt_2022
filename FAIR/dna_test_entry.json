@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schema.org/version/latest/schemaorg-current-http.jsonld",
+    "@context": {
+        "gt_bestaand": "",
+        "bestaandNaam": [{
+            "@id": ""
+        }],
+        "SNP": [{
+            "@value": "SNP entry"
+        }],
+        "rsid": [{
+            "@value": "The unique indentifier"
+        }],
+        "chromosome": [{
+            "@value": "the chromosome notition, 1-23 or MT"
+        }],
+        "position": [{
+            "@value": "the position on the corresponding chromosome"
+        }],
+        "genotype": [{
+            "@value": "the genotype"
+        }]
+    },
+    "gt_bestaand": [
+        {
+            "@type": "gt_bestaand",
+            "bestaandNaam": "uk4CA868_20180206095657.txt",
+            "SNP": [
+                {
+                    "@type": "SNP",
+                    "rsid": "rs12564807",
+                    "chromosome": "1",
+                    "position": "734462",
+                    "genotype": "AA"
+                },
+                {
+                    "@type": "SNP",
+                    "rsid": "rs3131972",
+                    "chromosome": "1",
+                    "position": "752721",
+                    "genotype": "GG"
+                }
+            ]
+        },
+        {
+            "@type": "gt_bestaand",
+            "bestaandNaam": "uk35C650_20211207142910.txt",
+            "SNP": [
+                {
+                    "@type": "SNP",
+                    "rsid": "rs12564807",
+                    "chromosome": "1",
+                    "position": "734462",
+                    "genotype": "AA"
+                },
+                {
+                    "@type": "SNP",
+                    "rsid": "rs3131972",
+                    "chromosome": "1",
+                    "position": "752721",
+                    "genotype": "GG"
+                }
+            ]
+        }
+    ]
+}
