@@ -1,6 +1,6 @@
 #! /bin/bash
 
-usage() { echo -e "\nUsage: $0 [-s /path/to/source] [-D /path/to/distination]\n\nArguments: \n	-s	Source Directory. If not supplied, current working directory will be used. In case directory name contain space, it should be escaped with double quote (\"\") or (\\ ).\n	-D	Destination directory. If not supplied, directory 'iid' under the source directory will be used or will be created (in case not exist). Space in the name should be escaped, see '-s' argument for more info." 1>&2; exit 1; }
+usage() { echo -e "\nUsage: $0 [-s path/to/source] [-D path/to/destination]\n\nArguments: \n\t-D\tDestination directory. If not supplied, directory 'iid' under the source directory will be used or will be created (in case not exist). Space in the name should be escaped, see '-s' argument for more info.\n\t-h\tDisplay usage.\n\t-s\tSource Directory. If not supplied, current working directory will be used. In case directory name contain space, it should be escaped with double quote (\"\") or (\\ )." 1>&2; exit 1; }
 
 # Get options
 while getopts ":s:D:" flag
