@@ -40,7 +40,7 @@ else
 fi
 if [ ! -d "$des_dir" ]
 then
-        mkdir "$des_dir"
+        mkdir -p "$des_dir"
 fi
 
 # export iid
