@@ -12,8 +12,11 @@
 # variable voor genotype
 
 # send HTTP GET request
-
+import requests
+r = requests.get("")
 # get HTTP response
+print('Status Code:')
+print(r.status_code)
 
 # process HTTP response
 
