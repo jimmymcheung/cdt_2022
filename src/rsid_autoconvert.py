@@ -5,6 +5,7 @@
 # The input should be tab-separated value, in the following format:
 # rsid	chromosome	position	genotype
 
+# inlezen bestanden
 # variable voor rsid
 # voor elke iid
 # variable voor chromosome:position
