@@ -11,9 +11,11 @@
 # variable voor chromosome:position
 # variable voor genotype
 
-# send HTTP GET request
+# query rsid info
+# https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=snp&id=[rsid, csv]&rettype=json&retmode=text
+# Voorbeeld: GET https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=268,328&rettype=json&retmode=text
 
-# get HTTP response
+# query variant info by chromosome:position
 
 # process HTTP response
 
