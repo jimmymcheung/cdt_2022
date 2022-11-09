@@ -13,7 +13,7 @@
 
 # send HTTP GET request
 import requests
-r = requests.get("") #URL moet nog ingezet worden
+r = requests.get("")  # URL moet nog ingezet worden
 # get HTTP response
 print('Status Code:')
 print(r.status_code)
