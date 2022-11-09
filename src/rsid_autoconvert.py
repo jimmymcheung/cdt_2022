@@ -16,6 +16,12 @@
 # Voorbeeld: GET https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=268,328&rettype=json&retmode=text
 
 # query variant info by chromosome:position
+# send HTTP GET request
+import requests
+r = requests.get("")
+# get HTTP response
+print('Status Code:')
+print(r.status_code)
 
 # process HTTP response
 
