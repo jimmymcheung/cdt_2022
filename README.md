@@ -24,7 +24,7 @@ Onderstaande onderwerpen moet nog aanmaken.
 ## Usage
 Query record with private id (the private id used in the example files under `res/` is `iid`) or rsid and export these record separately in a file can be done with `iid_query.sh`. The manpage of this script is under `man/`, usage of this script can also be checked by supplying `-h` option. Below is the syntax of the command:
 ```sh
-$ src/iid_query.sh [-hr] [-s **path/to/source_dir**] [-D **path/to/destination_dir**]
+$ src/iid_query.sh [-hr] [-s path/to/source_dir] [-D path/to/destination_dir]
 ```
 Note:
 - With `-r` the command will execute in reverse mode.
