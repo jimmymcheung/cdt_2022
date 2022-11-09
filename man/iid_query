@@ -1,0 +1,31 @@
+.\" Manpage for iid_query.sh.
+.TH man 1 "08 Nov 2022" "1.0" "iid_query.sh man page"
+.SH NAME
+\fBiid_query.sh\fR - query and export non-rsid records (exculeded comments)
+
+.SH SYNOPSIS
+\fBiid_query.sh\fR [\fB-h\fR] [\fB-s\fR \fIpath/to/source\fR] [\fB-D\fR \fIpath/to/destination\fR]
+
+.SH DESCRIPTION
+\fBiid_query.sh\fRreads the gt files and export any record that does not precede with rsid except comments (recognised by #). The exported record of each file is saved in the given destination directory or the child directory under the source directory named '\fIiid\fR'. The exported file will have '\fI_iid\fR' appended after the original file name, and before the file extension. See below the exported file name.
+.br
+.B "	filename_original.gt	filename_original_iid.gt"
+
+.SH OPTIONS
+\fB-D\fR \fIpath/to/destination\fR
+.br
+	The path of the destination directory. Empty value is pretended as \*(lq\fI./idd\fR\*(rq is supplied.
+.LP
+\fB-h\fR
+.br
+	Display the usage.
+.LP
+\fB-s\fR \fIpath/to/source\fR
+.br
+	The path of the source directory. Empty value is pretended as \*(lq\fI.\fR\fR\*(rq is supplied, thus the current working directory is used.
+
+.SH BUGS
+No known bugs. Report bugs to the project Github directory.
+
+.SH AUTHOR
+Jiaming Zhang, part of the Check De Test project 2022.
