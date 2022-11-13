@@ -35,6 +35,9 @@ Note:
 
 *tbd*
 
+## Known issues
+1. The man page could not be opened in macOS Ventura (maybe onwards) due to the removal of `groff`. `groff` is a typesetting system for creating formatted output from text with inline formatting commands.
+
 ## Werken in dit Git repo
 Vergeet niet eerst `pull` of `fetch` het repo voor dat je begin met werken!
 
