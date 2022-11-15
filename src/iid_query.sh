@@ -24,7 +24,7 @@ do
 	case "${flag}" in
 		s) sc_dir=${OPTARG};;
                 D) des_dir=${OPTARG};;
-		f) file=${OPTARG} ;;
+		f) file=${OPTARG:?Error: file cannot be empty} ;;
 		r) reverse=true;;
 		v) printf "Version: ${version}\n" ; exit 0;;
 		*) usage;;
@@ -102,6 +102,7 @@ then
 		done
 	fi
 else
+	f="${file##*/}"
 	if [ ! -d "$des_dir" ]
 	then
 	        mkdir -p "$des_dir"
@@ -111,15 +112,15 @@ else
 		printf "Running in reverse mode.\n"
 		# export rsid
 			printf "Reading ${file}\n"
-       		 	m="${des_dir}/${file%.*}_rsid.gt"
+       		 	m="${des_dir}/${f%.*}_rsid.gt"
 			cat "$file" | grep '\(\(^rs[0-9]\+.*\)\)' > "$m"
-			printf "Finished with $file, output written in $m\n"
+			printf "Finished with $f, output written in $m\n"
 	elif [ "$reverse" = false ]
 	then
 		# export iid
        		 	printf "Reading $file\n"
-       		 	m="${des_dir}/${file%.*}_iid.gt"
+       		 	m="${des_dir}/${f%.*}_iid.gt"
 	        	cat "$file" | grep -v '\(\(^rs[0-9]\+.*\)\|\(^#.*\)\)' > "$m"
-       		 	printf "Finished with $file, output written in $m\n"
+       		 	printf "Finished with $f, output written in $m\n"
 	fi
 fi
