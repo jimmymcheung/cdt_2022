@@ -1,9 +1,9 @@
 .\" Manpage for iid_query.sh.
-.TH iid_query.sh 1 "08 Nov 2022" "1.0" "iid_query.sh man page"
+.TH iid_query.sh 1 "14 Nov 2022" "1.2" "iid_query.sh man page"
 .SH NAME
 \fBiid_query.sh\fR - query and export non-rsid records (exculeded comments)
 .SH SYNOPSIS
-\fBiid_query.sh\fR [\fB-hr\fR] [\fB-s\fR \fIpath/to/source\fR] [\fB-D\fR \fIpath/to/destination\fR]
+\fBiid_query.sh\fR [\fB-hrv\fR] [\fB-s\fR \fIpath/to/source\fR] [\fB-D\fR \fIpath/to/destination\fR] [\fB-f\fR \fIpath/to/file\fR]
 .SH DESCRIPTION
 \fBiid_query.sh\fR reads the gt files and export any record that does not precede with rsid except comments (recognised by #). The exported record of each file is saved in the given destination directory or the child directory under the source directory named '\fIiid\fR'. The exported file will have '\fI_iid\fR' (or '\fI_rsid\fR' in reverse mode) appended after the original file name, and before the file extension. See below the exported file name.
 .br
@@ -17,17 +17,25 @@ More details see the available options.
 .br
 	The path of the destination directory. Empty value is pretended as \*(lq\fI./idd\fR\*(rq is supplied. In reverse mode, empty value is default to \*(lq\fI./rsid\fR\*(rq.
 .LP
+\fB-f\fR \fIpath/to/destination\fR
+.br
+	Single File mode. The path of file must be supplied. In this mode, file extension is not limited to '.gt' but preferably to still have a file extension present to aviod error. 
+.LP
 \fB-h\fR
 .br
 	Display the usage.
 .LP
 \fB-r\fR
 .br
-	Reverse mode. The rsid records will be queried instead of any other private id.
+	Reverse mode. The rsid records will be queried instead of any other private id. Can be combined with single file mode.
 .LP
 \fB-s\fR \fIpath/to/source\fR
 .br
 	The path of the source directory. Empty value is pretended as \*(lq\fI.\fR\fR\*(rq is supplied, thus the current working directory is used.
+.LP
+\fB-v\fR
+.br
+	Prints the version.
 .SH BUGS
 No known bugs. Report bugs to the project Github directory.
 .SH AUTHOR
