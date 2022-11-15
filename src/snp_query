@@ -23,7 +23,8 @@ die() {
   exit 1
 }
 checksource() {
-  exist="$(ls | grep '.*\.gt')"
+  # compgen is bash only
+  exist="$(compgen -G '*.gt')"
   if [ -z "${exist}" ]
   then
     printf "\033[1mWARN: Source directory is empty\033[0m\n" >&2
