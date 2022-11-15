@@ -1,3 +1,5 @@
+import os
+
 def read_gt(filename):
     """Reads if genotype transcript file, all rules with # will not be read
 
@@ -30,7 +32,15 @@ def read_gt(filename):
         print("Name does not exist")
 
 def main():
-    file = "genome_Stuart_Harris_Full_20110224043304.gt"
-    read_gt(file)
+    #filename = ""
+    #rsidlist, iidlist = read_gt(filename)
+
+    path = "/Users/ninaschreiner/Library/CloudStorage/OneDrive-Persönlich/HAN Third year Bachelor/Minor Data Science/cdt_2022/" \
+           "res/GT_files/Original_files"
+    entries = os.listdir(path)
+    for file in entries:
+        print(file)
+        rsid_list, iid_list = read_gt(os.path.join(path, file))
+        #print(rsid_list)
 
 main()
