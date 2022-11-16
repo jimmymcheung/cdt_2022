@@ -22,14 +22,15 @@ Onderstaande onderwerpen moet nog aanmaken.
 - Syntax en Usage
 
 ## Usage
-Query record with private id (the private id used in the example files under `res/` is `iid`) or rsid and export these record separately in a file can be done with `iid_query.sh`. The manpage of this script is under `man/`, usage of this script can also be checked by supplying `-h` option. Below is the syntax of the command:
+Query record with private id (the private id used in the example files under `res/` is `iid`) or rsid and export these record separately in a file can be done with `snp_query`. The manpage of this script is under `man/`, usage of this script can also be checked by supplying `-h` option. Below is the syntax of the command:
 ```sh
-$ src/iid_query.sh [-hr] [-s path/to/source_dir] [-D path/to/destination_dir]
+$ snp_query [-h|-?|--help] [-r|--reverse] [-v|--version] [-s|--source path/to/source] [-D|--destination path/to/destination] [-f|--file path/to/file]
 ```
 Note:
-- With `-r` the command will execute in reverse mode.
+- With `-r` or `--reverse` the command will execute in reverse mode. In the reverse mode RSID is queried.
 - Either case option `-s` and `-D` can be left empty. However, when `-s` is left empty, the script assumes that the file to be read is at the current working directory.
-- The file to-be-read must in `.gt` format, if not please add `.gt` extension to the file.
+- With `-f` or `--file` single file can be supplied to query either rsid or private SNP ID.
+- In normal mode, the file to-be-read must in `.gt` format, if not please add `.gt` extension to the file. However, in single file mode the file extension can be anything than empty.
 - Each line in the file should starts with ID. The ID may present in different format (e.g. private ID may be `iid`, `aa`, `1234` etc.), however, rsid must start with `rs`.
 - Comments in the file are omitted.
 
