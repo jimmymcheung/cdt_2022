@@ -45,6 +45,7 @@ Vergeet niet eerst `pull` of `fetch` het repo voor dat je begin met werken!
 - Resource of een notitie van resource die in dit project gebruikt, vindt u onder het map `res`.
 - Onder `man` vindt u het documentatie voor het gebruik van de software, andere documentaties vinden plaats onder `doc`.
 - `test` bevat `yaml` of andere test automatisering om de coden te checken.
+- **Elke Python web app scripts moeten `#!/usr/bin/env python` hebben op het eerst lijn.**
 
 ## Accreditatie en License
 De gebruik van dit project wordt begeleid met AGPLv3 tenzij de gebuiker projectlid is. 
