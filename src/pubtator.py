@@ -1,6 +1,9 @@
 
 import urllib.request
-
+import nltk
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+from nltk.stem.snowball import SnowballStemmer
 
 
 def get_terms(all_pmids):
@@ -44,6 +47,12 @@ def parse_pubtator(text):
     terms_occurances = count_terms(terms)
     return terms, bioconcepts, terms_occurances
 
+words = ["cancer", "cancers", "cancerous"]
+sn_stemmer = SnowballStemmer("english")
+
+for w in words:
+    stem = print(w, " : ", sn_stemmer.stem(w))
+    print(stem)
 
 def count_terms(terms):
     terms_occurances = {}
