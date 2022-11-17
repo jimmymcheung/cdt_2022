@@ -52,7 +52,7 @@ sn_stemmer = SnowballStemmer("english")
 
 for w in words:
     stem = print(w, " : ", sn_stemmer.stem(w))
-    print(stem)
+    print(sn_stemmer.stem(w), file = open("output_stem.txt", "a"))
 
 def count_terms(terms):
     terms_occurances = {}
@@ -63,6 +63,14 @@ def count_terms(terms):
     print(terms_occurances)
     return terms_occurances
 
+def count_stem_words(terms):
+    with open(r"output_stem.txt", "r") as file:
+        number_of_words = 0
+        stems = file.read()
+        lines = str.split()
+        number_of_words += len(lines)
+        print(number_of_words)
+        return number_of_words
 
 if __name__ == '__main__':
     all_pmids = [20964851, 19176549, 28244479, 30713326, 31761807, 26891021]
