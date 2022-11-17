@@ -24,13 +24,12 @@ def get_id_info():
                     pmids = []
                     for a in i.findall(f'[@ID = "{no_rs}"]'):
                         if a.attrib["ID"] == no_rs:
-                            print(no_rs)
-                            dictionary.update({no_rs: ""})
-                    for t in s.iter("ID"):
-                        for l in t.findall("[@Source='PubMed']"):
-                            if l.text not in pmids:
-                                pmids.append(l.text)
-                                print(pmids)
+                            no_rs_no_duplicate = no_rs
+                        for t in s.iter("ID"):
+                            for l in t.findall("[@Source='PubMed']"):
+                                if l.text not in pmids:
+                                    pmids.append(l.text)
+                                    dictionary.update({no_rs_no_duplicate: pmids})
     print(dictionary)
     # return str(res)
 
