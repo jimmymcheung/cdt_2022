@@ -34,15 +34,15 @@ def read_gt(filename):
 
 
 def main():
-    # filename = ""
-    #rsidlist, iidlist = read_gt(filename)
+    filename = ""
+    rsidlist, iidlist = read_gt(filename)
 
     path = "C:/Users/jaral/PycharmProjects/cdt_2022/res/GT_files/Original_files"
-    # entries = os.listdir(path)
-    # for file in entries:
-    #     print(file)
-    #     rsid_list, iid_list = read_gt(os.path.join(path, file))
-    #     print(rsid_list)
+    entries = os.listdir(path)
+    for file in entries:
+        print(file)
+        rsid_list, iid_list = read_gt(os.path.join(path, file))
+        print(rsid_list)
 
 
 main()

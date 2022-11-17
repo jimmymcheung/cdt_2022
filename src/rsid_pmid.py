@@ -1,19 +1,22 @@
 #!/usr/bin/env python
-
+import os
 
 import pandas as pd
 import xml.etree.ElementTree as elt
 from collections import defaultdict
 from alive_progress import alive_bar
-import time
+from tqdm import tqdm
+from time import sleep
 
-content = elt.parse('uk4CA868_20180206095657(1).gt')
+content = elt.parse("C:/Users/jaral/OneDrive/Bureaublad/clinvar_cut.xml")
 tree = content.getroot()
 no_rs = ""
 rsandpmids = {}
 rsids = []
 pmids = []
 myDict = dict()
+
+
 
 
 def read_gt(filename):
@@ -51,10 +54,10 @@ def read_gt(filename):
 def get_id_info(rsid):
     dictionary = {}
 
-    with alive_bar(1000, force_tty=True) as bar:
+    with alive_bar(len(rsid), force_tty=True) as bar:
         for i in rsid:
             no_rs = i.replace("rs", "")
-            #print(no_rs)
+            bar()
             for s in tree.iter("ClinVarSet"):
                 for movie in s.iter("XRef"):
                     for i in movie.findall('[@Type = "rs"]'):
@@ -68,7 +71,7 @@ def get_id_info(rsid):
                                     if l.text not in pmids:
                                         pmids.append(l.text)
                                         dictionary.update({no_rs_no_duplicate: pmids})
-                                        bar()
+
         return dictionary
 
 
