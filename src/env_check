@@ -1,0 +1,47 @@
+#!/bin/sh
+
+cmdlist='python3 pip php systemctl'
+
+die() {
+  printf '\033[1m%s\033[0m\n' "$1" >&2
+  exit 1
+}
+
+# get options
+while :; do
+	case $1 in
+		-S|--system)
+			if [ "$2" ]; then
+				system=$2
+				shift
+			else
+				die 'ERROR: "-S" or "--system" requires a non-empty option argument.'
+			fi
+			;;
+		--system=?*)
+			system=${1#*=};;
+		--system=)
+			die 'ERROR: "--system" requires a non-empty option argument.';;
+		--)
+			shift
+			break;;
+		-?*)
+			printf '\033[5mWARN: Unknown option (ignored): %s\033[0m\n%s\n' "$1" "$(usage)" >&2
+			exit 128;;
+		*)
+			break
+	esac
+done
+
+####### Main Program #######
+printf 'The following command are required: %s\n' "$cmdlist"
+for i in $cmdlist
+do
+	check="$(which $i)"
+	if [ -z "$check" ]
+	then
+		printf '\033[1mWRAN: Plase install %s\033[0m\n' "$i"
+	else
+		printf '%s is found at %s\n' "$i" "$check"
+	fi
+done
