@@ -24,6 +24,7 @@ def get_id_info():
                     pmids = []
                     for a in i.findall(f'[@ID = "{no_rs}"]'):
                         if a.attrib["ID"] == no_rs:
+                            dictionary.update({no_rs: ""})
                             no_rs_no_duplicate = no_rs
                         for t in s.iter("ID"):
                             for l in t.findall("[@Source='PubMed']"):
