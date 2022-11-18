@@ -47,12 +47,18 @@ def parse_pubtator(text):
     terms_occurances = count_terms(terms)
     return terms, bioconcepts, terms_occurances
 
-words = ["cancer", "cancers", "cancerous"]
+words = ["cancers", "cancerous"]
 sn_stemmer = SnowballStemmer("english")
+
+#clearfileout
+with open("output_stem.txt",'w')as file:
+    pass
 
 for w in words:
     stem = print(w, " : ", sn_stemmer.stem(w))
     print(sn_stemmer.stem(w), file = open("output_stem.txt", "a"))
+    f = open("output_stem.txt", "r")
+    f.close()
 
 def count_terms(terms):
     terms_occurances = {}
@@ -63,14 +69,24 @@ def count_terms(terms):
     print(terms_occurances)
     return terms_occurances
 
-def count_stem_words(terms):
-    with open(r"output_stem.txt", "r") as file:
-        number_of_words = 0
-        stems = file.read()
-        lines = str.split()
-        number_of_words += len(lines)
-        print(number_of_words)
-        return number_of_words
+#count stem words
+file_name = "output_stem.txt"
+file_handle = open("output_stem.txt", "r")
+countWord = 0
+for content in file_handle:
+    chk = 0
+    content_length = len(content)
+    for i in range (content_length):
+        if content [i] ==' ':
+            if chk!=0:
+                countWord = countWord+1
+            chk = 0
+        else:
+            chk = chk+1
+    if chk!=0:
+        countWord = countWord+1
+print("\nstem word(s): " + sn_stemmer.stem(w) + ", occurance: ")
+print(countWord)
 
 if __name__ == '__main__':
     all_pmids = [20964851, 19176549, 28244479, 30713326, 31761807, 26891021]
