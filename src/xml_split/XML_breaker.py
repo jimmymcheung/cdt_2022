@@ -3,6 +3,7 @@ import sys
 from xml.sax import parse
 from xml.sax.saxutils import XMLGenerator
 
+
 class CycleFile(object):
 
     def __init__(self, filename):
@@ -27,8 +28,9 @@ class CycleFile(object):
     def close(self):
         self.file.close()
 
+
 class XMLBreaker(XMLGenerator):
-    
+
     def __init__(self, break_into=None, break_after=1000, out=None, *args, **kwargs):
         XMLGenerator.__init__(self, out, encoding='utf-8', *args, **kwargs)
         self.out_file = out
@@ -55,6 +57,7 @@ class XMLBreaker(XMLGenerator):
                 XMLGenerator.startDocument(self)
                 for element in self.context:
                     XMLGenerator.startElement(self, *element)
+
 
 filename, break_into, break_after = sys.argv[1:]
 parse(filename, XMLBreaker(break_into, int(break_after), out=CycleFile(filename)))
