@@ -14,6 +14,14 @@ version=1.3
 # Version 1.0
 # shipped with ability to query and export private SNP ID entry.
 
+# Initialise all the option variables.
+self=`echo "$0" | sed -e 's,.*/,,'`
+unset file
+unset sc_dir
+unset des_dir
+reverse=false
+file=false
+
 # Functions
 usage() {
   printf "\n\033[1m\033[7mUsage:\033[0m\n%s [\033[1m-h\033[0m|\
@@ -54,12 +62,6 @@ checksource() {
     exit 1
   fi
 }
-# Initialise all the option variables.
-unset file
-unset sc_dir
-unset des_dir
-reverse=false
-file=false
 
 # Get options
 while :; do
@@ -144,6 +146,11 @@ while :; do
   
   shift
 done
+if test $# != 0; then
+  echo "$self: too many arguments$(usage)" >&2
+  exit 1
+fi
+
 
 # Validate variables
 if [ "${file}" != false ] && [ -f "${file}" ]
