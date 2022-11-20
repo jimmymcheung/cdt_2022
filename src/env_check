@@ -78,7 +78,7 @@ while :; do
 
 done
 if test $# != 0; then
-  echo "$self: too many arguments$(usage)" >&2
+  printf "\033[5m\033[1m$self: too many arguments\033[0m\n%s\n" "$(usage)" >&2
   exit 1
 fi
 
