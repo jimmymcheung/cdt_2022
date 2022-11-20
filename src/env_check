@@ -11,7 +11,7 @@ fi
 
 if [ -f "${os_release}" ]
 then
-  OS="$(grep '^ID_LIKE=.*' ${os_release} || grep '^ID=.*' ${os_release})"
+  OS="$(grep '^ID_LIKE=.*' "${os_release}" || grep '^ID=.*' "${os_release}")"
   OS="${OS#*=}"
   OS="${OS#\"}"
   OS="${OS%\"}"
@@ -58,7 +58,7 @@ esac
 
 # Initialise variable
 checked=''
-self=`echo "$0" | sed -e 's,.*/,,'`
+self="$(echo "$0" | sed -e 's,.*/,,')"
 cmdlist='httpd python3 pip psql php'
 apache_mod='mod_wsgi'
 
@@ -71,10 +71,10 @@ die() {
   exit 1
 }
 hand_check_info() {
-  printf "\033[0mInfo: Your OS is not in our predefined OS list, \
-Please manually check if \033[4m%s\033[0m is installed and the requ\
-ired apache module ( \033[4m%s\033[0m ) is enabled.\nInfo: Please a\
-lso noted that Python needs to have >=3.7 version\n" "$cmdlist" "$apache_mod"
+  printf "\033[0mInfo: Please manually check if \033[4m%s\033[0m is\
+ installed and the required apache module ( \033[4m%s\033[0m ) is e\
+nabled.\nInfo: Please also noted that Python needs to have >=3.7 ve\
+rsion\n" "$cmdlist" "$apache_mod"
 }
 
 # get options
@@ -125,16 +125,16 @@ case "$system" in
     cmdlist='apache2 python3 pip psql php'
     apache_mod='mod_wsgi';;
   "freebsd")
-    printf '\033[1mWARN: Your OS is freebsd. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)"
+    printf '\033[1mWARN: Your OS is freebsd. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)" >&2
     exit 1
     ;;
-  "windows")
-    printf '\033[1mWARN: Your OS is Windows. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)"
+  "windows"|"msys"|"cygwin")
+    printf '\033[1mWARN: Your OS is Windows. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)" >&2
     exit 1
     ;;
   *)
-    hand_check_info
-    exit 0
+    printf '\033[1mWARN: Your OS is not in our predefined OS list!\033[0m\n%s\n' "$(hand_check_info)" >&2
+    exit 1
     ;;
 esac
 
@@ -142,7 +142,7 @@ esac
 printf 'The following command are required: %s\n' "$cmdlist"
 for i in $cmdlist
 do
-	check="$(which $i)"
+	check="$(which "$i")"
 	if [ -z "$check" ]
 	then
 		printf '\033[1mWARN: Plase install %s\033[0m\n' "$i"
@@ -153,12 +153,12 @@ do
 done
 
 # Check if required Apache HTTP server module is enabled
-if [ "$(echo $checked | grep 'httpd')" ] || [ "$(echo $checked | grep 'apache2')" ]
+if echo "$checked" | grep -q 'httpd' || echo "$checked" | grep -q 'apache2'
 then
   for n in $apache_mod
   do
     mod_enable="$(apachectl -M)"
-    httpd_check="$(echo $mod_enable | grep $n)"
+    httpd_check="$(echo "$mod_enable" | grep "$n")"
     if [ -z "$httpd_check" ]
     then
       printf '\033[1mWARN: \033[4m%s\033[0m\033[1m needs to be enabled\033[0m\n' "$n"
@@ -169,15 +169,12 @@ else
 fi
 
 # Check if python version is high enough
-if [ "$(echo $checked | grep 'python3')" ]
+if echo "$checked" | grep -q 'python3'
 then
-  if [ -n "$(python3 --version | grep '3\.[7-9]\|3\.[1-9]\+[0-9]\+')" ]
+  if python3 --version | grep -q '3\.[7-9]\|3\.[1-9]\+[0-9]\+'
   then
     printf "\033[0mPython3 version met the minimum requirement\n"
-  elif [ -z "$(python3 --version | grep '3\.[7-9]\|3\.[1-9]\+[0-9]\+')" ]
-  then
-    printf "\033[1mWARN: Python version is too low, you should upgrade Python to at least version 3.7\033[0m\n"
   else
-    printf "\033[1mWARN: Unrecognised Python version\033[0m\n"
+    printf "\033[1mWARN: Python version is too low, you should upgrade Python to at least version 3.7\033[0m\n"
   fi
 fi
