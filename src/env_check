@@ -1,7 +1,37 @@
 #!/bin/sh
 
-system="default"
+# Detect OS
+OS="$(uname | tr '[:upper:]' '[:lower:]')"
+case "$OS" in
+  'linux'*)
+    # ...
+    system='linux'
+    ;;
+  'darwin'*)
+    # Mac OSX
+    system='darwin'
+    ;;
+  'freebsd'*)
+    # ...
+    system='freebsd'
+    ;;
+  'sunos')
+    system='solaris'
+    ;;
+  'windowsnt'|'msys'*|'cygwin'*)
+    # POSIX compatibility layer and Linux environment emulation for Windows
+    system='windows'
+    ;;
+  *)
+    # Unknown.
+    system='default'
+    ;;
+esac
 checked=''
+
+usage() {
+  printf 'Usage:\n\t\033[1m%s\033[0m [\033[1m-h|-?|--help\033[0m] [\033[1m-S|--system\033[0m \033[4mos_name\033[0m]\n' "$0"
+}
 die() {
   printf '\033[1m%s\033[0m\n' "$1" >&2
   exit 1
@@ -10,6 +40,10 @@ die() {
 # get options
 while :; do
 	case $1 in
+	  -h|-\?|--help)
+	    usage
+	    exit
+	    ;;
 		-S|--system)
 			if [ "$2" ]; then
 				system=$2
@@ -35,12 +69,16 @@ while :; do
 done
 
 case "$system" in
-  "macOS"|"Darwin")
+  "macOS"|"darwin")
     cmdlist='python3 pip php httpd'
     apache_mod='mod_wsgi';;
   "Ubuntu"|"Debian")
     cmdlist='python3 pip php apache2'
     apache_mod='mod_wsgi';;
+  "freebsd")
+    printf '\033[1mWARN: Your OS is freebsd. Compatibility is not tested on this system!\033[0m\n'
+    exit 1
+    ;;
   *)
     cmdlist='python3 pip php httpd'
     apache_mod='mod_wsgi';;
@@ -53,7 +91,7 @@ do
 	check="$(which $i)"
 	if [ -z "$check" ]
 	then
-		printf '\033[1mWRAN: Plase install %s\033[0m\n' "$i"
+		printf '\033[1mWARN: Plase install %s\033[0m\n' "$i"
 	else
 		printf '%s is found at %s\n' "$i" "$check"
 		checked="${checked} $i"
@@ -68,7 +106,7 @@ then
     httpd_check="$(echo $mod_enable | grep $n)"
     if [ -z "$httpd_check" ]
     then
-      printf '\033[1mWRAN: %s is required\033[0m\n' "$n"
+      printf '\033[1mWARN: %s is required\033[0m\n' "$n"
     fi
   done
 else
