@@ -59,7 +59,7 @@ esac
 # Initialise variable
 checked=''
 self=`echo "$0" | sed -e 's,.*/,,'`
-cmdlist='python3 pip php httpd'
+cmdlist='httpd python3 pip psql php'
 apache_mod='mod_wsgi'
 
 # functions
@@ -116,13 +116,13 @@ fi
 system="$(echo "$system" | tr '[:upper:]' '[:lower:]')"
 case "$system" in
   "macos"|"darwin")
-    cmdlist='python3 pip php httpd'
+    cmdlist='httpd python3 pip psql php'
     apache_mod='mod_wsgi';;
   "fedora"|"centos"|"redhat"|"oracle")
-    cmdlist='python3 pip php httpd'
+    cmdlist='httpd python3 pip psql php'
     apache_mod='mod_wsgi';;
   "ubuntu"|"debian")
-    cmdlist='python3 pip php apache2'
+    cmdlist='apache2 python3 pip psql php'
     apache_mod='mod_wsgi';;
   "freebsd")
     printf '\033[1mWARN: Your OS is freebsd. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)"
