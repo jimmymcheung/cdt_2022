@@ -3,7 +3,7 @@
 # Detect OS
 if [ -f "/etc/os-release" ]
 then
-  OS="$(grep '^ID-like=.*' '/etc/os-release')" || OS="$(grep '^ID=.*' '/etc/os-release')"
+  OS="$(grep '^ID_LIKE=.*' '/etc/os-release')" || OS="$(grep '^ID=.*' '/etc/os-release')"
 elif [ ! -f "/etc/os-release" ]
 then
   OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
