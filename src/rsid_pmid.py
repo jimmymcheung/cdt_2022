@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import os
+import pandas
 
 import pandas as pd
 import xml.etree.ElementTree as elt
@@ -8,7 +8,7 @@ from alive_progress import alive_bar
 from tqdm import tqdm
 from time import sleep
 
-content = elt.parse("C:/Users/jaral/OneDrive/Bureaublad/clinvar_cut.xml")
+content = elt.parse("../res/clinvar/clinvar_cut.xml")
 tree = content.getroot()
 no_rs = ""
 rsandpmids = {}
@@ -91,5 +91,5 @@ def data_to_database(dictionary):
 
 if __name__ == '__main__':
     rsidlist, iidlist = read_gt(
-        "C:/Users/jaral/PycharmProjects/cdt_2022/res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
+        "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
     get_id_info(rsidlist)

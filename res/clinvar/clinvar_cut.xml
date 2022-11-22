@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ReleaseSet Dated="2022-10-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.69.xsd">
+
+<ClinVarSet ID="92147963">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_018109.4(MTPAP):c.1432A&gt;G (p.Asn478Asp) AND Spastic ataxia 4</Title>
+  <ReferenceClinVarAssertion ID="57505" DateLastUpdated="2022-04-23" DateCreated="2013-04-04">
+    <ClinVarAccession Acc="RCV000000002" DateUpdated="2022-04-23" DateCreated="2013-04-04" Version="3" Type="RCV"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2014-12-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+        <FamilyData NumFamilies="1"/>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="96154914">
+        <Attribute Type="Description">In 6 affected members of a large consanguineous family of Old Order Amish origin with spastic ataxia-4 (SPAX4; 613672), Crosby et al. (2010) identified a homozygous 1432A-G transition in exon 9 of the MTPAP gene, resulting in an asn478-to-asp (N478D) substitution in a highly conserved region in an N-P-F-E sequence. The phenotype was characterized by early childhood onset of progressive cerebellar ataxia, spastic paraparesis, dysarthria, and optic atrophy. The mutation was not found in 600 control chromosomes from individuals of European ancestry and was found in 1 of 200 control chromosomes from the same Ohio Amish community. Assays assessing mitochondrial poly(A) tails of the mitochondrial-encoded transcripts RNA14 and MTCO1 (516030) indicated that homozygous carriers of the MTPAP mutation had significantly increased percentages of oligoadenylated (less than 10 nucleotides) compared to polyadenylated (greater than 30 nucleotides) transcripts compared to unaffected parents who were heterozygous for the N478D mutation. Although the exact function of polyadenylation of mitochondrial mRNA transcripts remained unclear, the process is essential for maintaining proper mRNA expression in mitochondria, and disruption of this process leads to mitochondrial dysfunction, as shown by the neurodegeneration in this family.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">20970105</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="96154914">
+        <Attribute Type="Description">Wilson et al. (2014) performed studies on fibroblasts from 2 patients and 1 unaffected obligate mutation carrier from the Amish family with SPAX4 reported by Crosby et al. (2010). Mitochondrial mRNA from patient cells showed a lack of polyadenylation and a concomitant increase in oligoadenylated species. Heterozygous cells were similar to controls, with a mild increase in oligoadenylated mRNA. Homozygous mutant cell lines showed a decrease in oxidative phosphorylation activity, as well as a severe decrease in the amounts and activities of mitochondrial complexes I and IV. The effects on the steady-state levels and translation of mRNA species in patient cells varied depending on the transcript. The findings were consistent with a selective defect in mitochondrial gene expression, and these defects could be rescued by expression of wildtype MTPAP. The mutant protein showed normal localization, but was unable to extend unadenylated MTND3 (516002) substrate in vitro, consistent with a loss of enzyme function. The addition of LRPPRC (607544)/SLIRP (610211), a mitochondrial RNA-binding complex, mildly enhanced adenylation activity of the mutant protein. Wilson et al. (2014) concluded that alterations in poly(A) length can dysregulate posttranscriptional expression and cause a pathogenic lack of respiratory chain complexes.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">20970105</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">25008111</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="18391" Acc="VCV000018391" Version="1">
+      <Measure Type="single nucleotide variant" ID="33430">
+        <Name>
+          <ElementValue Type="Preferred">NM_018109.4(MTPAP):c.1432A&gt;G (p.Asn478Asp)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000010.11:30313925:T:C</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_018109" Version="4" Change="c.1432A&gt;G" Type="HGVS, coding, RefSeq" MANESelect="true">NM_018109.4:c.1432A&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_028096" Version="1" Change="g.40413A&gt;G" Type="HGVS, genomic, RefSeqGene">NG_028096.1:g.40413A&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000010" Version="11" Change="g.30313926T&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000010.11:g.30313926T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000010" Version="10" Change="g.30602855T&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000010.10:g.30602855T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="Q9NVV4" Change="p.Asn478Asp" Type="HGVS, protein">Q9NVV4:p.Asn478Asp</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_060579" Version="3" Change="p.Asn478Asp" Type="HGVS, protein, RefSeq">NP_060579.3:p.Asn478Asp</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_018109.4:c.1432A&gt;G" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">N478D</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ASN478ASP</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00001" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00002" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>10p11.23</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="10" Accession="NC_000010.11" start="30313926" stop="30313926" display_start="30313926" display_stop="30313926" variantLength="1" positionVCF="30313926" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="10" Accession="NC_000010.10" start="30602855" stop="30602855" display_start="30602855" display_stop="30602855" variantLength="1" positionVCF="30602855" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">mitochondrial poly(A) polymerase</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">MTPAP</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="10" Accession="NC_000010.11" start="30309801" stop="30349278" display_start="30309801" display_stop="30349278" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="10" Accession="NC_000010.10" start="30598729" stop="30638266" display_start="30598729" display_stop="30638266" variantLength="39538" Strand="-"/>
+          <XRef ID="55149" DB="Gene"/>
+          <XRef Type="MIM" ID="613669" DB="OMIM"/>
+          <XRef ID="HGNC:25532" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="Q9NVV4#VAR_064907" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="613669.0001" DB="OMIM"/>
+        <XRef Type="rs" ID="267606900" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_018109.4(MTPAP):c.1432A&gt;G (p.Asn478Asp)</ElementValue>
+      </Name>
+      <XRef ID="CA113782" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="6208">
+      <Trait ID="15688" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Spastic ataxia 4</ElementValue>
+          <XRef ID="MONDO:0013354" DB="MONDO"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Ataxia, spastic, 4, autosomal recessive</ElementValue>
+          <XRef ID="Ataxia%2C+spastic%2C+4%2C+autosomal+recessive/7727" DB="Genetic Alliance"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Alternate">SPAX4</ElementValue>
+          <XRef Type="MIM" ID="613672" DB="OMIM"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="GARD id" integerValue="10992"/>
+          <XRef ID="10992" DB="Office of Rare Diseases"/>
+        </AttributeSet>
+        <XRef ID="MONDO:0013354" DB="MONDO"/>
+        <XRef ID="C3150925" DB="MedGen"/>
+        <XRef ID="254343" DB="Orphanet"/>
+        <XRef Type="MIM" ID="613672" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="20145">
+    <ClinVarSubmissionID localKey="613669.0001_SPASTIC ATAXIA 4, AUTOSOMAL RECESSIVE (1 family)" submitter="OMIM" submitterDate="2015-01-30" title="MTPAP, ASN478ASP _SPASTIC ATAXIA 4, AUTOSOMAL RECESSIVE (1 family)"/>
+    <ClinVarAccession Acc="SCV000020145" DateCreated="2013-04-04" DateUpdated="2015-02-02" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2014-12-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="613669.0001" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+        <FamilyData NumFamilies="1"/>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In 6 affected members of a large consanguineous family of Old Order Amish origin with spastic ataxia-4 (SPAX4; 613672), Crosby et al. (2010) identified a homozygous 1432A-G transition in exon 9 of the MTPAP gene, resulting in an asn478-to-asp (N478D) substitution in a highly conserved region in an N-P-F-E sequence. The phenotype was characterized by early childhood onset of progressive cerebellar ataxia, spastic paraparesis, dysarthria, and optic atrophy. The mutation was not found in 600 control chromosomes from individuals of European ancestry and was found in 1 of 200 control chromosomes from the same Ohio Amish community. Assays assessing mitochondrial poly(A) tails of the mitochondrial-encoded transcripts RNA14 and MTCO1 (516030) indicated that homozygous carriers of the MTPAP mutation had significantly increased percentages of oligoadenylated (less than 10 nucleotides) compared to polyadenylated (greater than 30 nucleotides) transcripts compared to unaffected parents who were heterozygous for the N478D mutation. Although the exact function of polyadenylation of mitochondrial mRNA transcripts remained unclear, the process is essential for maintaining proper mRNA expression in mitochondria, and disruption of this process leads to mitochondrial dysfunction, as shown by the neurodegeneration in this family.</Attribute>
+        <Citation>
+          <ID Source="PubMed">20970105</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="613672" Type="MIM"/>
+        <XRef DB="OMIM" ID="516030" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Wilson et al. (2014) performed studies on fibroblasts from 2 patients and 1 unaffected obligate mutation carrier from the Amish family with SPAX4 reported by Crosby et al. (2010). Mitochondrial mRNA from patient cells showed a lack of polyadenylation and a concomitant increase in oligoadenylated species. Heterozygous cells were similar to controls, with a mild increase in oligoadenylated mRNA. Homozygous mutant cell lines showed a decrease in oxidative phosphorylation activity, as well as a severe decrease in the amounts and activities of mitochondrial complexes I and IV. The effects on the steady-state levels and translation of mRNA species in patient cells varied depending on the transcript. The findings were consistent with a selective defect in mitochondrial gene expression, and these defects could be rescued by expression of wildtype MTPAP. The mutant protein showed normal localization, but was unable to extend unadenylated MTND3 (516002) substrate in vitro, consistent with a loss of enzyme function. The addition of LRPPRC (607544)/SLIRP (610211), a mitochondrial RNA-binding complex, mildly enhanced adenylation activity of the mutant protein. Wilson et al. (2014) concluded that alterations in poly(A) length can dysregulate posttranscriptional expression and cause a pathogenic lack of respiratory chain complexes.</Attribute>
+        <Citation>
+          <ID Source="PubMed">25008111</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">20970105</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="516002" Type="MIM"/>
+        <XRef DB="OMIM" ID="607544" Type="MIM"/>
+        <XRef DB="OMIM" ID="610211" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">MTPAP, ASN478ASP</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">ASN478ASP</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">MTPAP</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="613669.0001" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">SPASTIC ATAXIA 4, AUTOSOMAL RECESSIVE (1 family)</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="92147964">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_018013.4(SOBP):c.1981C&gt;T (p.Arg661Ter) AND Intellectual disability, anterior maxillary protrusion, and strabismus</Title>
+  <ReferenceClinVarAssertion ID="57506" DateLastUpdated="2022-04-23" DateCreated="2013-04-04">
+    <ClinVarAccession Acc="RCV000000003" DateUpdated="2022-04-23" DateCreated="2013-04-04" Version="3" Type="RCV"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2010-11-12">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="95562166">
+        <Attribute Type="Description">In 7 affected sibs from a consanguineous Israeli Arab family with mental retardation, anterior maxillary protrusion, and strabismus (MRAMS; 613671) reported by Basel-Vanagaite et al. (2007), Birk et al. (2010) identified a homozygous 1981C-T transition in exon 6 of the SOBP gene, resulting in an arg661-to-ter (R661X) substitution. The mutation was predicted to result in the truncation of 212 residues of the protein, which would cause elimination of the second proline-rich domain (PR2) as well as the C-terminal NLS and an RNA-binding region that may be important for the functioning of the protein. The mutation was not observed in 300 control chromosomes from Israeli Arab individuals. Birk et al. (2010) suggested that disruption of the SOBP gene in the limbic system during synaptogenesis resulted in abnormal cognition in these patients.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">17618476</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">21035105</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="18392" Acc="VCV000018392" Version="2">
+      <Measure Type="single nucleotide variant" ID="33431">
+        <Name>
+          <ElementValue Type="Preferred">NM_018013.4(SOBP):c.1981C&gt;T (p.Arg661Ter)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000006.12:107634824:C:T</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_018013" Version="4" Change="c.1981C&gt;T" Type="HGVS, coding, RefSeq" MANESelect="true">NM_018013.4:c.1981C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_028200" Version="1" Change="g.149713C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_028200.1:g.149713C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_028200" Version="2" Change="g.149713C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_028200.2:g.149713C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000006" Version="12" Change="g.107634825C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000006.12:g.107634825C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000006" Version="11" Change="g.107956029C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000006.11:g.107956029C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_060483" Version="3" Change="p.Arg661Ter" Type="HGVS, protein, RefSeq">NP_060483.3:p.Arg661Ter</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">nonsense</Attribute>
+          <XRef ID="SO:0001587" DB="Sequence Ontology"/>
+          <XRef ID="NM_018013.4:c.1981C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R661*</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ARG661TER</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>6q21</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="6" Accession="NC_000006.12" start="107634825" stop="107634825" display_start="107634825" display_stop="107634825" variantLength="1" positionVCF="107634825" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="6" Accession="NC_000006.11" start="107956029" stop="107956029" display_start="107956029" display_stop="107956029" variantLength="1" positionVCF="107956029" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">sine oculis binding protein homolog</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SOBP</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="6" Accession="NC_000006.12" start="107490117" stop="107661306" display_start="107490117" display_stop="107661306" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="6" Accession="NC_000006.11" start="107811316" stop="107982512" display_start="107811316" display_stop="107982512" variantLength="171197" Strand="+"/>
+          <XRef ID="55084" DB="Gene"/>
+          <XRef Type="MIM" ID="613667" DB="OMIM"/>
+          <XRef ID="HGNC:29256" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="613667.0001" DB="OMIM"/>
+        <XRef Type="rs" ID="267607078" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_018013.4(SOBP):c.1981C&gt;T (p.Arg661Ter)</ElementValue>
+      </Name>
+      <XRef ID="CA113783" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="6209">
+      <Trait ID="15783" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Intellectual disability, anterior maxillary protrusion, and strabismus</ElementValue>
+          <XRef ID="MONDO:0013353" DB="MONDO"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">MRAMS</ElementValue>
+          <XRef Type="MIM" ID="613671" DB="OMIM"/>
+        </Symbol>
+        <XRef ID="MONDO:0013353" DB="MONDO"/>
+        <XRef ID="C3150924" DB="MedGen"/>
+        <XRef Type="MIM" ID="613671" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="20146">
+    <ClinVarSubmissionID localKey="613667.0001_MENTAL RETARDATION, ANTERIOR MAXILLARY PROTRUSION, AND STRABISMUS" submitter="OMIM" submitterDate="2019-09-13" title="SOBP, ARG661TER_MENTAL RETARDATION, ANTERIOR MAXILLARY PROTRUSION, AND STRABISMUS"/>
+    <ClinVarAccession Acc="SCV000020146" DateCreated="2013-04-04" DateUpdated="2019-09-16" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2010-11-12">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="613667.0001" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In 7 affected sibs from a consanguineous Israeli Arab family with mental retardation, anterior maxillary protrusion, and strabismus (MRAMS; 613671) reported by Basel-Vanagaite et al. (2007), Birk et al. (2010) identified a homozygous 1981C-T transition in exon 6 of the SOBP gene, resulting in an arg661-to-ter (R661X) substitution. The mutation was predicted to result in the truncation of 212 residues of the protein, which would cause elimination of the second proline-rich domain (PR2) as well as the C-terminal NLS and an RNA-binding region that may be important for the functioning of the protein. The mutation was not observed in 300 control chromosomes from Israeli Arab individuals. Birk et al. (2010) suggested that disruption of the SOBP gene in the limbic system during synaptogenesis resulted in abnormal cognition in these patients.</Attribute>
+        <Citation>
+          <ID Source="PubMed">17618476</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">21035105</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="613671" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">SOBP, ARG661TER</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">ARG661TER</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">SOBP</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="613667.0001" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">MENTAL RETARDATION, ANTERIOR MAXILLARY PROTRUSION, AND STRABISMUS</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="92147965">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_001004127.3(ALG11):c.257T&gt;C (p.Leu86Ser) AND ALG11-CDG</Title>
+  <ReferenceClinVarAssertion ID="57507" DateLastUpdated="2022-04-23" DateCreated="2013-04-04">
+    <ClinVarAccession Acc="RCV000000004" DateUpdated="2022-04-23" DateCreated="2013-04-04" Version="2" Type="RCV"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2010-04-15">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="96274940">
+        <Attribute Type="Description">In 2 Turkish sibs, born of consanguineous parents, with congenital disorder of glycosylation type Ip (CDG1P; 613661), Rind et al. (2010) identified a homozygous 257T-C transition in exon 2 of the ALG11 gene, resulting in a leu86-to-ser (L86S) substitution in a highly conserved region in the N terminus between 2 hydrophobic helices at the end of a glycine-rich motif. Each unaffected parent was heterozygous for the mutation, which was not found in 100 control alleles. Introduction of wildtype ALG11 in patient fibroblasts and yeast deficient in the enzyme complemented the biochemical abnormality. Immunofluorescent studies showed that the mutation did not affect protein localization and did not appear to affect the stability of the mannosyltransferase complex. However, studies in yeast showed that the mutant L86S protein had some residual activity, but not as much as wildtype, suggesting that it is a leaky mutation.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">20080937</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="18393" Acc="VCV000018393" Version="2">
+      <Measure Type="single nucleotide variant" ID="33432">
+        <Name>
+          <ElementValue Type="Preferred">NM_001004127.3(ALG11):c.257T&gt;C (p.Leu86Ser)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000013.11:52019124:T:C</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_001004127" Version="3" Change="c.257T&gt;C" Type="HGVS, coding, RefSeq" MANESelect="true">NM_001004127.3:c.257T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_028038" Version="1" Change="g.11739T&gt;C" Type="HGVS, genomic, RefSeqGene">NG_028038.1:g.11739T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000013" Version="11" Change="g.52019125T&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000013.11:g.52019125T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000013" Version="10" Change="g.52593261T&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000013.10:g.52593261T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="Q2TAA5" Change="p.Leu86Ser" Type="HGVS, protein">Q2TAA5:p.Leu86Ser</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001004127" Version="2" Change="p.Leu86Ser" Type="HGVS, protein, RefSeq">NP_001004127.2:p.Leu86Ser</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001004127.3:c.257T&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">L86S</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">LEU86SER</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>13q14.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="13" Accession="NC_000013.11" start="52019125" stop="52019125" display_start="52019125" display_stop="52019125" variantLength="1" positionVCF="52019125" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="13" Accession="NC_000013.10" start="52593261" stop="52593261" display_start="52593261" display_stop="52593261" variantLength="1" positionVCF="52593261" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">ALG11 alpha-1,2-mannosyltransferase</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ALG11</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="13" Accession="NC_000013.11" start="52012398" stop="52033600" display_start="52012398" display_stop="52033600" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="13" Accession="NC_000013.10" start="52586522" stop="52603783" display_start="52586522" display_stop="52603783" variantLength="17262" Strand="+"/>
+          <XRef ID="440138" DB="Gene"/>
+          <XRef Type="MIM" ID="613666" DB="OMIM"/>
+          <XRef ID="HGNC:32456" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="Q2TAA5#VAR_064908" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="613666.0001" DB="OMIM"/>
+        <XRef Type="rs" ID="267606652" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_001004127.3(ALG11):c.257T&gt;C (p.Leu86Ser)</ElementValue>
+      </Name>
+      <XRef ID="CA251353" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="6210">
+      <Trait ID="15690" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">ALG11-CDG</ElementValue>
+          <XRef ID="MONDO:0013349" DB="MONDO"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ip</ElementValue>
+          <XRef Type="MIM" ID="613661" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0001" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0002" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0003" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0004" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0005" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0006" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0007" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0008" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="613666.0009" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Congenital disorder of glycosylation type 1P</ElementValue>
+          <XRef ID="Congenital+disorder+of+glycosylation+type+1P/8052" DB="Genetic Alliance"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Alternate">CDG1P</ElementValue>
+          <XRef Type="MIM" ID="613661" DB="OMIM"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="GARD id" integerValue="12396"/>
+          <XRef ID="12396" DB="Office of Rare Diseases"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301507</ID>
+          <ID Source="BookShelf">NBK1332</ID>
+        </Citation>
+        <XRef ID="MONDO:0013349" DB="MONDO"/>
+        <XRef ID="C3150913" DB="MedGen"/>
+        <XRef ID="280071" DB="Orphanet"/>
+        <XRef Type="MIM" ID="613661" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="20147">
+    <ClinVarSubmissionID localKey="613666.0001_CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ip" submitter="OMIM" submitterDate="2019-12-17" title="ALG11, LEU86SER_CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ip"/>
+    <ClinVarAccession Acc="SCV000020147" DateCreated="2013-04-04" DateUpdated="2015-10-11" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2010-04-15">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="613666.0001" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In 2 Turkish sibs, born of consanguineous parents, with congenital disorder of glycosylation type Ip (CDG1P; 613661), Rind et al. (2010) identified a homozygous 257T-C transition in exon 2 of the ALG11 gene, resulting in a leu86-to-ser (L86S) substitution in a highly conserved region in the N terminus between 2 hydrophobic helices at the end of a glycine-rich motif. Each unaffected parent was heterozygous for the mutation, which was not found in 100 control alleles. Introduction of wildtype ALG11 in patient fibroblasts and yeast deficient in the enzyme complemented the biochemical abnormality. Immunofluorescent studies showed that the mutation did not affect protein localization and did not appear to affect the stability of the mannosyltransferase complex. However, studies in yeast showed that the mutant L86S protein had some residual activity, but not as much as wildtype, suggesting that it is a leaky mutation.</Attribute>
+        <Citation>
+          <ID Source="PubMed">20080937</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="613661" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">ALG11, LEU86SER</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">LEU86SER</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">ALG11</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="613666.0001" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ip</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="92147966">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_002036.4(ACKR1):c.125G&gt;A (p.Gly42Asp) AND DUFFY BLOOD GROUP SYSTEM, FYA/FYB POLYMORPHISM</Title>
+  <ReferenceClinVarAssertion ID="57508" DateLastUpdated="2022-04-23" DateCreated="2013-04-04">
+    <ClinVarAccession Acc="RCV000000005" DateUpdated="2022-04-23" DateCreated="2013-04-04" Version="3" Type="RCV"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2015-08-10">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="97431141">
+        <Attribute Type="Description">Tournamille et al. (1995) found that a single amino acid difference, gly44-to-asp (GLY44ASP; G44D), accounts for the difference between the FYA and FYB alleles at the Duffy blood group locus. This is the result of a G-to-A transition at nucleotide 131 (131G-A), which also correlates with a BanI restriction site polymorphism. This polymorphism allowed them to develop a method for the DNA typing of the main Duffy blood group antigens by means of PCR/restriction fragment length polymorphisms. Mallinson et al. (1995) likewise found G44D as the basis of the FYA/FYB polymorphism.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">7669660</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">7705836</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="97431141">
+        <Attribute Type="Description">In their review, Pogo and Chaudhuri (2000) referred to this SNP as 125G-A, with 125G defining the FYA allele and 125A defining the FYB allele. The resulting substitution is gly42 to asp (G42D), with gly42 defining the Fy(a) antigen and asp42 defining the Fy(b) antigen. The nucleotide and amino acid sequences of DARC were renumbered due to the discovery by Iwamoto et al. (1996) that a spliced mRNA, encoding a 336-amino acid protein, is the major product of the DARC gene.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">8547665</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">10791881</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="17728" Acc="VCV000017728" Version="5">
+      <Measure Type="single nucleotide variant" ID="32767">
+        <Name>
+          <ElementValue Type="Preferred">NM_002036.4(ACKR1):c.125G&gt;A (p.Gly42Asp)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000001.11:159205563:G:A</CanonicalSPDI>
+        <Symbol>
+          <ElementValue Type="Preferred">FYB</ElementValue>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Accession="LRG_801t1" Type="HGVS, coding, LRG">LRG_801t1:c.125G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_002036" Version="4" Change="c.125G&gt;A" Type="HGVS, coding, RefSeq" MANESelect="true">NM_002036.4:c.125G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001122951" Version="3" Change="c.131G&gt;A" Type="HGVS, coding, RefSeq">NM_001122951.3:c.131G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_801" Type="HGVS, genomic, LRG">LRG_801:g.6552G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_011626" Version="3" Change="g.6552G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_011626.3:g.6552G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000001" Version="11" Change="g.159205564G&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000001.11:g.159205564G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000001" Version="10" Change="g.159175354G&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000001.10:g.159175354G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_002036" Version="3" Change="c.125G&gt;A" Type="HGVS, previous">NM_002036.3:c.125G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="HGVS, protein"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_801p1" Change="p.Gly42Asp" Type="HGVS, protein">LRG_801p1:p.Gly42Asp</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="Q16570" Change="p.Gly42Asp" Type="HGVS, protein">Q16570:p.Gly42Asp</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_002027" Version="2" Change="p.Gly42Asp" Type="HGVS, protein, RefSeq">NP_002027.2:p.Gly42Asp</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001116423" Version="1" Change="p.Gly44Asp" Type="HGVS, protein, RefSeq">NP_001116423.1:p.Gly44Asp</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="Location">NM_002036.3:exon 2</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001122951.3:c.131G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_002036.4:c.125G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G42D</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">GLY42ASP</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.54054" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.52351" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.63718" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.66206" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.51204" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.64123" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+          <AlleleFrequency Value="0.65680" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.45947" Source="1000 Genomes Project" MinorAllele="G"/>
+        <CytogeneticLocation>1q23.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="1" Accession="NC_000001.11" start="159205564" stop="159205564" display_start="159205564" display_stop="159205564" variantLength="1" positionVCF="159205564" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="1" Accession="NC_000001.10" start="159175354" stop="159175354" display_start="159175354" display_stop="159175354" variantLength="1" positionVCF="159175354" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">atypical chemokine receptor 1 (Duffy blood group)</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ACKR1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="1" Accession="NC_000001.11" start="159204875" stop="159206500" display_start="159204875" display_stop="159206500" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="1" Accession="NC_000001.10" start="159173802" stop="159176289" display_start="159173802" display_stop="159176289" variantLength="2488" Strand="+"/>
+          <XRef ID="2532" DB="Gene"/>
+          <XRef Type="MIM" ID="613665" DB="OMIM"/>
+          <XRef ID="HGNC:4035" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="Q16570#VAR_003480" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="613665.0001" DB="OMIM"/>
+        <XRef Type="rs" ID="12075" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_002036.4(ACKR1):c.125G&gt;A (p.Gly42Asp)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_002036.4(ACKR1):c.125G&gt;A (p.Gly42Asp)</ElementValue>
+      </Name>
+      <XRef ID="CA113785" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="6211">
+      <Trait ID="15691" Type="BloodGroup">
+        <Name>
+          <ElementValue Type="Preferred">DUFFY BLOOD GROUP SYSTEM, FYA/FYB POLYMORPHISM</ElementValue>
+          <XRef Type="Allelic variant" ID="613665.0001" DB="OMIM"/>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="20148">
+    <ClinVarSubmissionID localKey="613665.0001_DUFFY BLOOD GROUP SYSTEM, FYA/FYB POLYMORPHISM" submitter="OMIM" submitterDate="2015-08-10" title="ACKR1, GLY42ASP_DUFFY BLOOD GROUP SYSTEM, FYA/FYB POLYMORPHISM"/>
+    <ClinVarAccession Acc="SCV000020148" DateCreated="2013-04-04" DateUpdated="2015-08-12" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2015-08-10">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="613665.0001" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">Tournamille et al. (1995) found that a single amino acid difference, gly44-to-asp (GLY44ASP; G44D), accounts for the difference between the FYA and FYB alleles at the Duffy blood group locus. This is the result of a G-to-A transition at nucleotide 131 (131G-A), which also correlates with a BanI restriction site polymorphism. This polymorphism allowed them to develop a method for the DNA typing of the main Duffy blood group antigens by means of PCR/restriction fragment length polymorphisms. Mallinson et al. (1995) likewise found G44D as the basis of the FYA/FYB polymorphism.</Attribute>
+        <Citation>
+          <ID Source="PubMed">7705836</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">7669660</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In their review, Pogo and Chaudhuri (2000) referred to this SNP as 125G-A, with 125G defining the FYA allele and 125A defining the FYB allele. The resulting substitution is gly42 to asp (G42D), with gly42 defining the Fy(a) antigen and asp42 defining the Fy(b) antigen. The nucleotide and amino acid sequences of DARC were renumbered due to the discovery by Iwamoto et al. (1996) that a spliced mRNA, encoding a 336-amino acid protein, is the major product of the DARC gene.</Attribute>
+        <Citation>
+          <ID Source="PubMed">10791881</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">8547665</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">ACKR1, GLY42ASP</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">GLY42ASP</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">ACKR1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="613665.0001" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">DUFFY BLOOD GROUP SYSTEM, FYA/FYB POLYMORPHISM</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+</ReleaseSet>
