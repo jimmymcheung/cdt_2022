@@ -139,13 +139,14 @@ case "$system" in
 esac
 
 ####### Main Program #######
-printf 'The following command are required: %s\n' "$cmdlist"
+printf 'You are running on %s.\n' "$system"
+# printf 'The following command are required: %s\n' "$cmdlist"
 for i in $cmdlist
 do
 	check="$(which "$i")"
 	if [ -z "$check" ]
 	then
-		printf '\033[1mWARN: Plase install %s\033[0m\n' "$i"
+		printf '\033[1mWARN: Please install %s\033[0m\n' "$i"
 	else
 		printf '%s is found at %s\n' "$i" "$check"
 		checked="${checked} $i"
