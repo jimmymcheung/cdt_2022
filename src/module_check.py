@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 
+# Check existence of required python modules
+# Copyright © 2022 CDT project
+# Author: Jiaming Zhang
 # Works on Python3 >= 3.6
-# check if required python modules are installed
-import json
 import sys
+import xml.etree.ElementTree
 
 mod_list = ["requests", "pandas"]
-submod_list = ["""{
-    "pipName": "alive-progress",
-    "parent": "alive_progress",
-    "child": "alive_bar"
-}"""]
-
-
-# class NestMod:
-#     def __int__(self, parent, child):
-#         self.parent = parent
-#         self.child = child
+subMod_list = """<?xml version="1.0"?>
+<modlist>
+    <module>
+        <pipname>alive-progress</pipname>
+        <parent>alive_progress</parent>
+        <child>alive_bar</child>
+    </module>
+</modlist>"""
 
 
 for i in mod_list:
@@ -30,29 +29,17 @@ for i in mod_list:
         sys.exit(1)
 
 
-# for x in submod_list:
-#     submod = json.load(json.dump(x))
-#     parent = submod["parent"]
-#     child = submod["child"]
-#     try:
-#         __import__(child, fromlist=parent)
-#         print("\033[0mINFO: \'" + parent + "." + child + "\' is found.\033[0m")
-#     except ModuleNotFoundError as err:
-#         # Error handling
-#         # print(err)
-#         print("\033[1mERROR: \'" + parent + "." + child + "\' is not found\033[0m")
-#         sys.exit(1)
-
-
-# Python3 >= 3.4 compatibility
-# import importlib
-# importlib.util.find_spec(name, package=None)
-# submod_list = []
-# for n in mod_list:
-#    pkg_spec = importlib.util.find_spec()
-#    found = pkg_spec is not None
-
-
-# for n in submod_list:
-#    pkg_spec = importlib.util.find_spec(package="alive.bar")
-#    found = pkg_spec is not None
+subMod_xml = xml.etree.ElementTree.fromstring(subMod_list)
+for e in subMod_xml:
+    parent = e.find('parent').text
+    child_list = e.findall('child')
+    for c in child_list:
+        child = c.text
+        try:
+            __import__(parent, fromlist=child)
+            print("\033[0mINFO: \'" + parent + '.' + child + "\' is found.\033[0m")
+        except ModuleNotFoundError as err:
+            # Error handling
+            # print(err)
+            print("\033[1mERROR: \'" + parent + '.' + child + "\' is not found\033[0m")
+            sys.exit(1)
