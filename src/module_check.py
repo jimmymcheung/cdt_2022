@@ -7,6 +7,7 @@ import sys
 
 mod_list = ["requests", "pandas"]
 submod_list = ["""{
+    "pipName": "alive-progress",
     "parent": "alive_progress",
     "child": "alive_bar"
 }"""]
