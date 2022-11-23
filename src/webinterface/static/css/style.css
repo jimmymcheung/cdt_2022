@@ -1,0 +1,334 @@
+body {
+  font-family: "Poppins", sans-serif;
+  color: #040000;
+  background-color: #ffffff;
+}
+
+.layout_padding {
+  padding: 90px 0;
+}
+
+.layout_padding2 {
+  padding: 45px 0;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 90px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 90px;
+}
+
+/*header section*/
+.sub_page .brand_box {
+  position: relative;
+  background-image: url(../images/slider-img.jpg);
+  padding: 45px 0;
+}
+
+.sub_page .nav_section {
+  margin-top: 0;
+  background-color: #252525;
+}
+
+.brand_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brand_box .navbar-brand span {
+  font-size: 34px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: initial;
+}
+
+.btn,
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.custom_nav-container {
+  z-index: 99999;
+  padding: 15px 0;
+}
+
+.custom_nav-container .navbar-toggler {
+  outline: none;
+}
+
+.custom_nav-container .navbar-toggler .navbar-toggler-icon {
+  background-image: url(../images/menu.png);
+  background-size: 42px;
+}
+
+.custom_nav-container .nav_search-btn {
+  margin: auto;
+}
+
+/*end hseader section*/
+/* slider section */
+.slider_section div#carouselExampleControls {
+  overflow: hidden;
+}
+
+.slider_section .img-box img {
+  width: 100%;
+}
+
+.slider_section .carousel-control-prev,
+.slider_section .carousel-control-next {
+  width: 90px;
+  height: 90px;
+  background-color: #252525;
+  opacity: 1;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+
+.slider_section .carousel-control-prev:hover,
+.slider_section .carousel-control-next:hover {
+  opacity: 0.9;
+}
+
+.slider_section .carousel-control-prev {
+  border-radius: 0 100% 100% 0;
+  background-image: url(../images/prev.png);
+  left: -50px;
+  background-position: 58px center;
+}
+
+.slider_section .carousel-control-next {
+  border-radius: 100% 0 0 100%;
+  background-image: url(../images/next.png);
+  right: -45px;
+  background-position: 20px center;
+}
+
+/* end slider section */
+.nav_section {
+  margin-top: -32px;
+}
+
+.nav_section .custom_nav2 .custom_nav-container {
+  padding: 10px 0;
+  background-color: #252525;
+  border-radius: 5px;
+}
+
+.nav_section .custom_nav2 .custom_nav-container .navbar-nav .nav-item .nav-link {
+  padding: 10px 30px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+
+.nav_section .custom_nav2 #navbarSupportedContent {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+
+.nav_section .custom_nav-container .nav_search-btn {
+  background-image: url(../images/search-icon.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: none;
+  margin: 0 40px 0 15px;
+  background-position: center;
+}
+
+.about_section .img-box {
+  padding: 35px 0;
+  background-color: #ececec;
+}
+
+.about_section .img-box img {
+  width: 100%;
+  -webkit-transform: translateX(45px);
+          transform: translateX(45px);
+}
+
+.about_section .detail-box {
+  text-align: center;
+  padding: 35px 45px;
+}
+
+.about_section .detail-box .heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about_section .detail-box .heading_container hr {
+  width: 1px;
+  height: 145px;
+  margin: 0;
+  border: none;
+  background-color: #b7b7b7;
+  margin-bottom: 10px;
+}
+
+.about_section .detail-box p {
+  margin-top: 10px;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: #313131;
+  border: 1px solid #313131;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: transparent;
+  color: #313131;
+}
+
+.client_section .heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.client_section .heading_container hr {
+  width: 20%;
+  height: 1px;
+  border: none;
+  margin: 0;
+  margin-left: 10px;
+  background-color: #b7b7b7;
+}
+
+.client_section .client_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 85%;
+  margin: auto;
+}
+
+.client_section .client_container .img-box {
+  width: 175px;
+  border-radius: 100%;
+}
+
+.client_section .client_container .img-box img {
+  width: 100%;
+}
+
+.client_section .client_container .detail-box {
+  margin-top: 25px;
+}
+
+.client_section .client_container .detail-box h5 {
+  color: #1d1b28;
+  margin-bottom: 15px;
+}
+
+.client_section .client_container .detail-box p {
+  color: #1d1b28;
+  margin: 20px;
+}
+
+.client_section .client_container .detail-box p img {
+  width: 25px;
+  margin: 3px 10px;
+}
+
+.client_section .client_container .detail-box img {
+  width: 60px;
+}
+
+.client_section .carousel-control-prev,
+.client_section .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #313131;
+  opacity: 1;
+  top: 28%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+.client_section .carousel-control-prev:hover,
+.client_section .carousel-control-next:hover {
+  background-color: #000000;
+}
+
+.client_section .carousel-control-prev {
+  background-image: url(../images/prev.png);
+  left: 15%;
+}
+
+.client_section .carousel-control-next {
+  background-image: url(../images/next.png);
+  right: 15%;
+}
+
+
+/* end footer section*/
+/*# sourceMappingURL=style.css.map */
