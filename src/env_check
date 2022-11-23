@@ -195,7 +195,7 @@ then
   then
     printf "\033[0mINFO: Python3 version met the minimum requirement\n"
     printf "\033[0mChecking python modules...\n"
-    python3 $pymod_check
+    python3 "$pymod_check"
     exit_code=$?
     if [ $exit_code -ne 0 ]
     then
