@@ -1,12 +1,17 @@
 #!/usr/bin/env python
-import os
 
-import pandas as pd
+# RSID local query for PMID
+# Copyright © 2022 CDT project
+# Author: Jara Laureijssen
+# See also: 'search_rsid.py' for querying on ClinVar Server.
+# import os
+
+# import pandas as pd
 import xml.etree.ElementTree as elt
-from collections import defaultdict
-from alive_progress import alive_bar
-from tqdm import tqdm
-from time import sleep
+# from collections import defaultdict
+# from alive_progress import alive_bar
+# from tqdm import tqdm
+# from time import sleep
 from lxml import etree as et
 
 content = elt.parse("../res/clinvar/clinvar_cut.xml")
