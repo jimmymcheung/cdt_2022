@@ -15,6 +15,10 @@ subMod_list = """<?xml version="1.0"?>
         <parent>alive_progress</parent>
         <child>alive_bar</child>
     </module>
+    <module>
+        <parent>lxml</parent>
+        <child>etree</child>
+    </module>
 </modlist>"""
 
 
