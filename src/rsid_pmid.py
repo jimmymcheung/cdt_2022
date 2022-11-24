@@ -4,8 +4,8 @@
 # Copyright © 2022 CDT project
 # Author: Jara Laureijssen
 # See also: 'search_rsid.py' for querying on ClinVar Server.
-# import os
 
+# import os
 # import pandas as pd
 import xml.etree.ElementTree as elt
 # from collections import defaultdict
