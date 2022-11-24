@@ -7,6 +7,7 @@ from collections import defaultdict
 from alive_progress import alive_bar
 from tqdm import tqdm
 from time import sleep
+from lxml import etree as et
 
 content = elt.parse("../res/clinvar/clinvar_cut.xml")
 tree = content.getroot()
@@ -15,8 +16,6 @@ rsandpmids = {}
 rsids = []
 pmids = []
 myDict = dict()
-
-
 
 
 def read_gt(filename):
@@ -51,43 +50,41 @@ def read_gt(filename):
         print("Name does not exist")
 
 
-def get_id_info(rsid):
-    dictionary = {}
-
-    with alive_bar(len(rsid), force_tty=True) as bar:
-        for i in rsid:
-            no_rs = i.replace("rs", "")
-            bar()
-            data_to_database(dictionary)
-            for s in tree.iter("ClinVarSet"):
-                for movie in s.iter("XRef"):
-                    for i in movie.findall('[@Type = "rs"]'):
-                        pmids = []
-                        for a in i.findall(f'[@ID = "{no_rs}"]'):
-                            if a.attrib["ID"] == no_rs:
-                                dictionary.update({no_rs: ""})
-                                no_rs_no_duplicate = no_rs
-                            for t in s.iter("ID"):
-                                for l in t.findall("[@Source='PubMed']"):
-                                    if l.text not in pmids:
-                                        pmids.append(l.text)
-                                        dictionary.update({no_rs_no_duplicate: pmids})
-
-        return dictionary
 def data_to_database(dictionary):
-
     for key, value in dictionary.items():
-        #print(key)
+        # print(key)
         for i in value:
-                # insert in database
-            #print(i)
+            print("")
+
 
 # Syntax xml clinvar:
 # <XRef Type="rs" ID="267606900" DB="dbSNP"/>
 # <ID Source="PubMed">20970105</ID>
 
+def fn2(rsid):
+    pmids = []
+    no_rs_no_duplicate = ''
+    dictionary2 = {}
+    context = et.iterparse("../res/clinvar/clinvar_cut.xml", tag=['XRef', 'ID'])
+    for event, element in context:
+        # print(element.attrib)
+        for i in rsid:
+            no_rs = i.replace("rs", "")
+            for z in element.findall('[@Type = "rs"]'):
+                pmids = []
+                for a in z.findall(f'[@ID = "{no_rs}"]'):
+                    if a.attrib["ID"] == no_rs:
+                        dictionary2.update({no_rs: ""})
+                        no_rs_no_duplicate = no_rs
+            for l in element.findall("[@Source='PubMed']"):
+                if l.text not in pmids:
+                    if no_rs_no_duplicate != "":
+                        pmids.append(l.text)
+                        dictionary2.update({no_rs_no_duplicate: pmids})
+    return dictionary2
+
 
 if __name__ == '__main__':
     rsidlist, iidlist = read_gt(
-         "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
-    print(get_id_info(rsidlist))
+        "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
+    print(fn2(rsidlist))
