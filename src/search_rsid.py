@@ -120,48 +120,48 @@ def get_ids_info(rsid):
                 no_rs = x.replace("rs", "")
                 rs_list.append(no_rs)
 
-    with alive_bar(((len(rsid) // 162) + 1), force_tty=True) as bar:
-        while rs_list:
-            bar()
-            if len(rs_list) >= 162:
-                rsdf = pd.DataFrame(rs_list[0:161])
-                r_rs = rsdf.to_csv(header=False, index=False)
-                r_rs = r_rs.replace("\n", ',')
-                r_rs = r_rs[:-1]
+    while rs_list:
+        if len(rs_list) >= 162:
+            rsdf = pd.DataFrame(rs_list[0:161])
+            r_rs = rsdf.to_csv(header=False, index=False)
+            r_rs = r_rs.replace("\n", ',')
+            r_rs = r_rs[:-1]
+        else:
+            rsdf = pd.DataFrame(rs_list)
+            r_rs = rsdf.to_csv(header=False, index=False)
+            r_rs = r_rs.replace("\n", ',')
+            r_rs = r_rs[:-1]
+            rs_end = True
+        # Max 1954 / 12 = 162 RSID per request with JSON
+        r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=" + r_rs + "&rettype=json&retmode=text", params=http_param)
+        # Max 164 RSID per request with XML
+        # r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=" + str(r_rs) + "&retmode=xml")
+        # Filter and add output to dict on HTTP 200
+        if r.status_code == 200:
+            # Extract HTTP response
+            out = json.loads(r.text)
+            # Filter and extract 'PMID' and 'Clinical significance'
+            # 'refsnp_id' is rsid; 'citations' is list of PMID;
+            # 'observation' is dict of mutation info (ID pos GT) can be multiple,
+            # 'alleles' has collection of 'allele' each is a 'observation';
+            # 'clinical' for clinical significance
+            for rsEntry in out:
+                rs_out: dict[str, Any] = {'refsnp_id': rsEntry['refsnp_id'], 'citations': rsEntry['citations']}
+                dictionary.update(rs_out)
+            if not rs_end:
+                # Clear first 162 elements in rs_list
+                del rs_list[0:161]
             else:
-                rsdf = pd.DataFrame(rs_list)
-                r_rs = rsdf.to_csv(header=False, index=False)
-                r_rs = r_rs.replace("\n", ',')
-                r_rs = r_rs[:-1]
-                rs_end = True
-            # Max 1954 / 12 = 162 RSID per request with JSON
-            r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=" + r_rs + "&rettype=json&retmode=text", params=http_param)
-            # Max 164 RSID per request with XML
-            # r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=" + str(r_rs) + "&retmode=xml")
-            # Filter and add output to dict on HTTP 200
-            if r.status_code == 200:
-                # Extract HTTP response
-                out = json.loads(r.text)
-                # Filter and extract 'PMID' and 'Clinical significance'
-                # 'refsnp_id' is rsid; 'citations' is list of PMID;
-                # 'observation' is dict of mutation info (ID pos GT) can be multiple,
-                # 'alleles' has collection of 'allele' each is a 'observation';
-                # 'clinical' for clinical significance
-                for rsEntry in out:
-                    rs_out: dict[str, Any] = {'refsnp_id': rsEntry['refsnp_id'], 'citations': rsEntry['citations']}
-                    dictionary.update(rs_out)
-                if not rs_end:
-                    # Clear first 162 elements in rs_list
-                    del rs_list[0:161]
-                else:
-                    rs_list.clear()
-            else:
-                print("\033[1mERROR: ClinVar Server return HTTP " + str(r.status_code) + ". Check Your connection or contact Server admin.\033[0m")
-                print("\033[0mRetrying...")
-            # Internal between request
-            time.sleep(1)
+                rs_list.clear()
+        else:
+            print("\033[1mERROR: ClinVar Server return HTTP " + str(r.status_code) + ". Check Your connection or contact Server admin.\033[0m")
+            print("\033[0mRetrying...")
+        # Internal between request
+        time.sleep(1)
+    else:
+        print("\033[0mINFO: Query completed!")
 
-        return dictionary
+    return dictionary
 
 
 if __name__ == '__main__':
