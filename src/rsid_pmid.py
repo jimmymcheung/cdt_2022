@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pandas
+import os
 
 import pandas as pd
 import xml.etree.ElementTree as elt
@@ -14,6 +14,9 @@ no_rs = ""
 rsandpmids = {}
 rsids = []
 pmids = []
+myDict = dict()
+
+
 
 
 def read_gt(filename):
@@ -56,8 +59,6 @@ def get_id_info(rsid):
             no_rs = i.replace("rs", "")
             bar()
             data_to_database(dictionary)
-            # funcie aan roepen, neem dictionary mee naar database fucntion
-            dictionary = {}
             for s in tree.iter("ClinVarSet"):
                 for movie in s.iter("XRef"):
                     for i in movie.findall('[@Type = "rs"]'):
@@ -73,16 +74,13 @@ def get_id_info(rsid):
                                         dictionary.update({no_rs_no_duplicate: pmids})
 
         return dictionary
-
-
 def data_to_database(dictionary):
 
     for key, value in dictionary.items():
-        print(key)
+        #print(key)
         for i in value:
-            # insert in database
-            print(i)
-
+                # insert in database
+            #print(i)
 
 # Syntax xml clinvar:
 # <XRef Type="rs" ID="267606900" DB="dbSNP"/>
@@ -91,5 +89,5 @@ def data_to_database(dictionary):
 
 if __name__ == '__main__':
     rsidlist, iidlist = read_gt(
-        "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
-    get_id_info(rsidlist)
+         "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
+    print(get_id_info(rsidlist))
