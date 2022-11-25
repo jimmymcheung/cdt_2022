@@ -73,10 +73,11 @@ def fn2(rsid):
     dictionary2 = {}
     context = et.iterparse("../res/clinvar/clinvar_cut.xml", tag=['XRef', 'ID'])
     for event, element in context:
-        # print(element.attrib)
+        print(element.attrib)
         for i in rsid:
             no_rs = i.replace("rs", "")
             for z in element.findall('[@Type = "rs"]'):
+                no_rs = i.replace("rs", "")
                 pmids = []
                 for a in z.findall(f'[@ID = "{no_rs}"]'):
                     if a.attrib["ID"] == no_rs:
