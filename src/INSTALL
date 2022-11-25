@@ -1,0 +1,55 @@
+################################################################################
+#                           Check de Test Project                              #
+#                               Install Guide                                  #
+#                                 2022-11-25                                   #
+#                              Copyright © 2022                                #
+################################################################################
+
+# Pre-request
+The core programme is python-based. The environment-check and auto-install
+script are POSIX compatible shell script. To run the programme you must have the
+following:
+* Python 3 (version >= 3.7)
+* POSIX shell (Most shell scripts in this project also require `bash` with
+    version 3 or higher)
+
+In order to use Web Interface you also need:
+* Apache HTTP Server version >= 2.x.x
+* Apache module `mod_wsgi`
+
+# Before install (Skip for auto install)
+1. Run `env_check` to check if all required modules are installed (and enabled).
+1.1. If you are running on a custom OS where `env_check` cannot detect the
+    correct OS, you may specify this with `-S` or `--system` option.
+
+
+
+#######################HAN#MINOR#2022-2023##DATA#SCIENCES#######################
+#DEKKER#D##GEURTS#L##LAUREIJSSEN#J##LUKASSEN#S##SCHREINER#N##WIGGERS#C##ZHANG#J#
+##                                                                            ##
+##                #######       #                             #               ##
+##              #        #     #                             #                ##
+##             #              #         ####      ####      #     #           ##
+##            #              # ###    #     #   #     #    #    #             ##
+##            #             #     #  #######   #          #  #                ##
+##            #            #     #   #         #         #    #               ##
+##             ########   #     #     ####      #####   #      #              ##
+##                                                                            ##
+##     ######                         #                            ####       ##
+##    #      #                       #                            #   #       ##
+##         #                    ### #      ####                   #  #        ##
+##       #                   #     #     #     #                   #          ##
+##                         #      #     #######                               ##
+##      ##                 #     #      #                         ##          ##
+##      ##                   ####        ####                     ##          ##
+##                                                                            ##
+##                #########                            #                      ##
+##                ########                            #                       ##
+##                   #       ####       #####     #######                     ##
+##                  #       #    #     #            #                         ##
+##                 #       #######      ##         #                          ##
+##                #        #               #      #  #                        ##
+##               #          ####     ######        ##                         ##
+##                                                                            ##
+##########################VALIDATE#COMMERCIAL#DNA#TEST##########################
+##################INSIGHT#TO#YOUR#GENOME###GET#A#BETTER#HEALTH##################
