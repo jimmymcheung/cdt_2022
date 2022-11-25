@@ -6,6 +6,7 @@
 
 # Library
 import json
+import random
 import time
 from typing import Any
 import requests
@@ -65,23 +66,10 @@ def get_id_info(rsid):
 
     with alive_bar(len(rsid), force_tty=True) as bar:
         bar()
-        # while rs_list:
-        #     bar()
-        #     if len(rs_list) >= 162:
-        #         rsdf = pd.DataFrame(rs_list[0:161])
-        #         r_rs = rsdf.to_csv(header=False, index=False)
-        #         r_rs = r_rs.replace("\n", ',')
-        #         r_rs = r_rs[:-1]
-        #     else:
-        #         rsdf = pd.DataFrame(rs_list)
-        #         r_rs = rsdf.to_csv(header=False, index=False)
-        #         r_rs = r_rs.replace("\n", ',')
-        #         r_rs = r_rs[:-1]
-        #         rs_end = True
         for r_rs in rs_list:
-            # Max 1954 / 12 = 162 RSID per request with JSON
+            # JSON
             r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=" + r_rs + "&rettype=json&retmode=text", params=http_param)
-            # Max 164 RSID per request with XML
+            # XML
             # r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=snp&id=" + str(r_rs) + "&retmode=xml")
             # Filter and add output to dict on HTTP 200
             if r.status_code == 200:
@@ -92,19 +80,14 @@ def get_id_info(rsid):
                 # 'observation' is dict of mutation info (ID pos GT) can be multiple,
                 # 'alleles' has collection of 'allele' each is a 'observation';
                 # 'clinical' for clinical significance
-                for rsEntry in out:
-                    rs_out: dict[str, Any] = {'refsnp_id': rsEntry['refsnp_id'], 'citations': rsEntry['citations']}
-                    dictionary.update(rs_out)
-                # if not rs_end:
-                #     # Clear first 162 elements in rs_list
-                #     del rs_list[0:161]
-                # else:
-                #     rs_list.clear()
+                # for rsEntry in out:
+                rs_out: dict[str, Any] = {'refsnp_id': out['refsnp_id'], 'citations': out['citations']}
+                dictionary.update(rs_out)
             else:
                 print("\033[1mERROR: ClinVar Server return HTTP " + str(r.status_code) + ". Check Your connection or contact Server admin.\033[0m")
                 print("\033[0mRetrying...")
             # Internal between request
-            time.sleep(1)
+            time.sleep(random.randint(0, 5))
 
         return dictionary
 
