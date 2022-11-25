@@ -1,16 +1,22 @@
 #!/usr/bin/env python
-import os
 
-import pandas as pd
+# RSID local query for PMID
+# Copyright © 2022 CDT project
+# Author: Jara Laureijssen
+# See also: 'search_rsid.py' for querying on ClinVar Server.
+
+# import os
+# import pandas as pd
 import xml.etree.ElementTree as elt
-from collections import defaultdict
-from alive_progress import alive_bar
-from tqdm import tqdm
-from time import sleep
+# from collections import defaultdict
+# from alive_progress import alive_bar
+# from tqdm import tqdm
+# from time import sleep
 from lxml import etree as et
 
 content = elt.parse("../res/clinvar/clinvar_cut.xml")
 tree = content.getroot()
+fileInput = input('Please specify your GT file: \n')
 no_rs = ""
 rsandpmids = {}
 rsids = []
@@ -86,6 +92,7 @@ def fn2(rsid):
 
 
 if __name__ == '__main__':
-    rsidlist, iidlist = read_gt(
-        "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
+    # rsidlist, iidlist = read_gt(
+    #     "../res/GT_files/Original_files/uk4CA868_20180206095657(1).gt")
+    rsidlist, iidlist = read_gt(fileInput)
     print(fn2(rsidlist))

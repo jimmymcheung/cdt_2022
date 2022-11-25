@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# RSID Live query for PMID
+# Copyright © 2022 CDT project
+# Author: Jiaming Zhang
+
 # Detect OS
 if [ -f '/etc/os-release' ]
 then

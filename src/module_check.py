@@ -11,9 +11,13 @@ mod_list = ["requests", "pandas"]
 subMod_list = """<?xml version="1.0"?>
 <modlist>
     <module>
-        <pipname>alive-progress</pipname>
+        <pipName>alive-progress</pipName>
         <parent>alive_progress</parent>
         <child>alive_bar</child>
+    </module>
+    <module>
+        <parent>lxml</parent>
+        <child>etree</child>
     </module>
 </modlist>"""
 
@@ -25,7 +29,7 @@ for i in mod_list:
     except ModuleNotFoundError as err:
         # Error handling
         # print(err)
-        print("\033[1mERROR: \'" + i + "\' is not found\033[0m")
+        print("\033[1mERROR: \'" + i + "\' is not found.\033[0m")
         sys.exit(1)
 
 
@@ -36,10 +40,10 @@ for e in subMod_xml:
     for c in child_list:
         child = c.text
         try:
-            __import__(parent, fromlist=child)
+            exec("from " + parent + " import " + child)
+            # __import__(parent, fromlist=child)
             print("\033[0mINFO: \'" + parent + '.' + child + "\' is found.\033[0m")
-        except ModuleNotFoundError as err:
+        except ImportError:
             # Error handling
-            # print(err)
             print("\033[1mERROR: \'" + parent + '.' + child + "\' is not found\033[0m")
             sys.exit(1)
