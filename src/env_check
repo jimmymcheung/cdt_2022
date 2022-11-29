@@ -69,9 +69,10 @@ pymod_check="${0%/*}/module_check.py"
 
 # functions
 usage() {
-  printf "Usage:\n\t\033[1m%s\033[0m [\033[1m-h|-?|--help\033[0m] [\
-\033[1m-S|--system\033[0m \033[4mos_name\033[0m] [\033[1m--python\
-\033[0m \033[4mpath/to/py_script\033[0m]\n" "$self"
+  printf "\033[7mUsage:\033[0m\n   \033[1m%s\033[0m\
+ [\033[1m-h|-?|--help\033[0m] [\033[1m-S|--system\
+\033[0m \033[4mos_name\033[0m] [\033[1m--python\033[0m\
+ \033[4mpath/to/py_script\033[0m]\n" "$self"
 }
 die() {
   printf '\033[1m%s\033[0m\n' "$1" >&2
