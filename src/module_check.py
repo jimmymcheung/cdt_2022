@@ -7,7 +7,7 @@
 import sys
 import xml.etree.ElementTree
 
-mod_list = ["requests", "pandas"]
+mod_list = ["requests", "pandas", "nltk"]
 subMod_list = """<?xml version="1.0"?>
 <modlist>
     <module>
@@ -19,12 +19,24 @@ subMod_list = """<?xml version="1.0"?>
         <parent>lxml</parent>
         <child>etree</child>
     </module>
+    <module>
+        <parent>nltk.stem</parent>
+        <child>PorterStemmer</child>
+    </module>
+    <module>
+        <parent>nltk.tokenize</parent>
+        <child>word_tokenize</child>
+    </module>
+    <module>
+        <parent>nltk.stem.snowball</parent>
+        <child>SnowballStemmer</child>
+    </module>
 </modlist>"""
 
 
 for i in mod_list:
     try:
-        __import__(i)
+        exec("import " + i)
         print("\033[0mINFO: \'" + i + "\' is found.\033[0m")
     except ModuleNotFoundError as err:
         # Error handling
