@@ -42,17 +42,17 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="img-box">
-              <img src="../static/images/slider-img.jpg" alt="">
+              <img src="../static/images/dna-placeholder.jpg" alt="">
             </div>
           </div>
           <div class="carousel-item">
             <div class="img-box">
-              <img src="../static/images/slider-img.jpg" alt="">
+              <img src="../static/images/dna-placeholder.jpg" alt="">
             </div>
           </div>
           <div class="carousel-item">
             <div class="img-box">
-              <img src="../static/images/slider-img.jpg" alt="">
+              <img src="../static/images/dna-placeholder.jpg" alt="">
             </div>
           </div>
         </div>
@@ -106,9 +106,38 @@
           <div class="detail-box">
             <div class="heading_container">
 <!--              <hr>-->
-              <h2>
-               invoerveld, send, reset, overzicht tabel
-              </h2>
+                <!-- Form aanmaken  -->
+            <div class="w3-row-padding w3-padding-63 w3-container"></div>
+<!--            <b>titel</b>-->
+
+            <form id="formSelect">
+              <label>Kies invoer methode</label>
+              <select id="ySelect">
+                <option value="" selected="selected"></option>
+                <option value="formname1">RSID invoeren</option>
+                <option value="formname2">GT file uploaden</option>
+              </select>
+            </form>
+
+            <section id="jq">
+              <form name="formName1" id="formname1" class="hide" style="display: none">
+                <br>
+                Voer een RSID in:
+                <input type="text" name="rsid">
+                <br><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+              </form>
+              <form name="formname2" id="formname2" class="hide" style="display: none">
+                <br>
+                Upload een GT file:
+                <input type="file" id="myfile" name="myfile">
+                <br><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+              </form>
+            </section>
+             <br><br><br><br><br><br><br>
             </div>
           </div>
         </div>

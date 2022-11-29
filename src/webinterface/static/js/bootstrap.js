@@ -4380,12 +4380,19 @@
 
       return Toast;
     }();
+
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
    */
 
+  $('#ySelect').on('change', function(event) {
+  var pick = event.target.value;
+  var $pick = $('#' + pick);
+  $('[id*="formname"]').hide();
+  $pick.show();
+  });
 
   $.fn[NAME$a] = Toast._jQueryInterface;
   $.fn[NAME$a].Constructor = Toast;
