@@ -36,6 +36,7 @@ subMod_list = """<?xml version="1.0"?>
         <child>SnowballStemmer</child>
     </module>
 </modlist>"""
+err_count = 0
 
 
 for i in mod_list:
@@ -46,7 +47,7 @@ for i in mod_list:
     except ImportError:
         # Error handling
         print("\033[1mERROR: \'" + i + "\' is not found.\033[0m")
-        sys.exit(1)
+        err_count = err_count + 1
 
 
 subMod_xml = xml.etree.ElementTree.fromstring(subMod_list)
@@ -62,4 +63,8 @@ for e in subMod_xml:
         except ImportError:
             # Error handling
             print("\033[1mERROR: \'" + parent + '.' + child + "\' is not found\033[0m")
-            sys.exit(1)
+            err_count = err_count + 1
+
+
+if err_count > 0:
+    sys.exit(1)
