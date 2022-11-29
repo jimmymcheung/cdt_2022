@@ -1,7 +1,7 @@
 import os
 
 
-def read_gt(filename):
+def read_gt_for_id(filename):
     """Reads if genotype transcript file, all rules with # will not be read
 
     :param: filename - str
@@ -32,18 +32,45 @@ def read_gt(filename):
     except NameError:
         print("Name does not exist")
 
+def read_gt(filename):
+    """Reads if genotype transcript file, all rules with # will not be read
+
+    :param: filename - str
+    :return: gtlist
+    """
+
+    gtlist = dict()
+    try:
+        # open file
+        with open(filename) as file:
+            # read file per line
+            for line in file:
+                # checks if line does not start with #
+                if line.startswith("rs"):
+                    # add only the first word (rsid) to the list
+                    rsid, chromosome, position, genotype = (line.split())
+                    gtlist[rsid] = chromosome, position, genotype
+        # returns gt file as dictionary
+        return gtlist
+    except FileNotFoundError:
+        print("File could not be found")
+    except IOError:
+        print("File is not readable")
+    except NameError:
+        print("Name does not exist")
+
 
 def main():
     # filename = ""
     # rsidlist, iidlist = read_gt(filename)
 
-    path = "C:/Users/jaral/PycharmProjects/cdt_2022/res/GT_files/Original_files"
+    path = "C:/Users/colin/PycharmProjects/cdt_2022/res/GT_files/Original_files"
     entries = os.listdir(path)
     for file in entries:
         print(file)
-        rsid_list, iid_list = read_gt(os.path.join(path, file))
-        # print(rsid_list)
-    return rsid_list, iid_list
+        gtlist = read_gt(os.path.join(path, file))
+        # print(gtlist)
+    return gtlist
 
 
 print(main())
