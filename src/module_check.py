@@ -16,18 +16,22 @@ subMod_list = """<?xml version="1.0"?>
         <child>alive_bar</child>
     </module>
     <module>
+        <pipName>lxml</pipName>
         <parent>lxml</parent>
         <child>etree</child>
     </module>
     <module>
+        <pipName>nltk</pipName>
         <parent>nltk.stem</parent>
         <child>PorterStemmer</child>
     </module>
     <module>
+        <pipName>nltk</pipName>
         <parent>nltk.tokenize</parent>
         <child>word_tokenize</child>
     </module>
     <module>
+        <pipName>nltk</pipName>
         <parent>nltk.stem.snowball</parent>
         <child>SnowballStemmer</child>
     </module>
@@ -38,9 +42,9 @@ for i in mod_list:
     try:
         exec("import " + i)
         print("\033[0mINFO: \'" + i + "\' is found.\033[0m")
-    except ModuleNotFoundError as err:
+    # except ModuleNotFoundError as err:
+    except ImportError:
         # Error handling
-        # print(err)
         print("\033[1mERROR: \'" + i + "\' is not found.\033[0m")
         sys.exit(1)
 
