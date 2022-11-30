@@ -1,0 +1,220 @@
+#!/bin/sh
+
+# RSID Live query for PMID
+# Copyright © 2022 CDT project
+# Author: Jiaming Zhang
+
+# Detect OS
+if [ -f '/etc/os-release' ]
+then
+  os_release='/etc/os-release'
+elif [ -f '/usr/lib/os-release' ]
+then
+  os_release='/usr/lib/os-release'
+fi
+
+if [ -f "${os_release}" ]
+then
+  OS="$(grep '^ID_LIKE=.*' "${os_release}" || grep '^ID=.*' "${os_release}")"
+  OS="${OS#*=}"
+  OS="${OS#\"}"
+  OS="${OS%\"}"
+  OS="${OS#\'}"
+  OS="${OS%\'}"
+  OS="$(echo "$OS" | tr '[:upper:]' '[:lower:]')"
+elif [ ! -f "${os_release}" ]
+then
+  OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
+fi
+case "$OS" in
+  fedora)
+    # Fedora, CentOS, RedHat ...
+    system='fedora'
+    ;;
+  debian)
+    # Debian, Ubuntu ...
+    system='debian'
+    ;;
+  linux|gnu|gnu/*)
+    # ...
+    system='linux'
+    ;;
+  'darwin'*)
+    # Mac OSX
+    system='darwin'
+    ;;
+  'freebsd'*)
+    # ...
+    system='freebsd'
+    ;;
+  'sunos')
+    system='solaris'
+    ;;
+  'windowsnt'|'msys'*|'cygwin'*)
+    # POSIX compatibility layer and Linux environment emulation for Windows
+    system='windows'
+    ;;
+  *)
+    # Unknown.
+    system='default'
+    ;;
+esac
+
+# Initialise variable
+checked=''
+self="$(echo "$0" | sed -e 's,.*/,,')"
+cmdlist='httpd python3 pip psql php'
+apache_mod='mod_wsgi'
+pymod_check="${0%/*}/module_check.py"
+
+# functions
+usage() {
+  printf "\033[7mUsage:\033[0m\n   \033[1m%s\033[0m\
+ [\033[1m-h|-?|--help\033[0m] [\033[1m-S|--system\
+\033[0m \033[4mos_name\033[0m] [\033[1m--python\033[0m\
+ \033[4mpath/to/py_script\033[0m]\n" "$self"
+}
+die() {
+  printf '\033[1m%s\033[0m\n' "$1" >&2
+  exit 1
+}
+hand_check_info() {
+  printf "\033[0mInfo: Please manually check if \033[4m%s\033[0m is\
+ installed and the required apache module ( \033[4m%s\033[0m ) is e\
+nabled.\nInfo: Please also noted that Python needs to have >=3.7 ve\
+rsion\n" "$cmdlist" "$apache_mod"
+}
+
+# get options
+while :; do
+	case $1 in
+	  -h|-\?|--help)
+	    usage
+	    exit
+	    ;;
+	  -S|--system)
+	    if [ "$2" ]; then
+	      system=$2
+	      shift
+	    else
+	      die 'ERROR: "-S" or "--system" requires a non-empty option argument.'
+	    fi
+	    ;;
+	  --system=?*)
+	    system=${1#*=};;
+	  --system=)
+	    die 'ERROR: "--system" requires a non-empty option argument.';;
+	  --python)
+	    if [ "$2" ]; then
+	      pymod_check=$2
+	      shift
+	    else
+	      die 'ERROR: "--python" requires a file path for the python check modules script.'
+	    fi
+	    ;;
+	  --python=?*)
+	    system=${1#*=};;
+	  --python=)
+	    die 'ERROR: "--python" requires a file path for the python check modules script.';;
+	  --)
+	    shift
+	    break;;
+	  -?*)
+	    printf '\033[5m\033[1mWARN: Unknown option (ignored): %s\033[0m\n%s\n' "$1" "$(usage)" >&2
+	    exit 128;;
+	  *)
+	    break
+	esac
+
+  shift
+done
+if test $# != 0; then
+  printf "\033[5m\033[1m$self: too many arguments\033[0m\n%s\n" "$(usage)" >&2
+  exit 1
+fi
+
+system="$(echo "$system" | tr '[:upper:]' '[:lower:]')"
+case "$system" in
+  "macos"|"darwin")
+    cmdlist='httpd python3 pip psql php'
+    apache_mod='mod_wsgi';;
+  "fedora"|"centos"|"redhat"|"oracle")
+    cmdlist='httpd python3 pip psql php'
+    apache_mod='mod_wsgi';;
+  "ubuntu"|"debian")
+    cmdlist='apache2 python3 pip psql php'
+    apache_mod='mod_wsgi';;
+  "freebsd")
+    printf '\033[1mWARN: Your OS is freebsd. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)" >&2
+    exit 1
+    ;;
+  "windows"|"msys"|"cygwin")
+    printf '\033[1mWARN: Your OS is Windows. Compatibility is not tested on this system!\033[0m\n%s\n' "$(hand_check_info)" >&2
+    exit 1
+    ;;
+  *)
+    printf '\033[1mWARN: Your OS is not in our predefined OS list!\033[0m\n%s\n' "$(hand_check_info)" >&2
+    exit 1
+    ;;
+esac
+
+####### Main Program #######
+printf 'You are running on %s.\n' "$system"
+# printf 'The following command are required: %s\n' "$cmdlist"
+for i in $cmdlist
+do
+	check="$(which "$i")"
+	if [ -z "$check" ]
+	then
+		printf '\033[1mWARN: Please install %s\033[0m\n' "$i"
+		cmd_miss=1
+	else
+		printf 'INFO: %s is found at %s\n' "$i" "$check"
+		checked="${checked} $i"
+	fi
+done
+
+# Check if required Apache HTTP server module is enabled
+if echo "$checked" | grep -q 'httpd' || echo "$checked" | grep -q 'apache2'
+then
+  for n in $apache_mod
+  do
+    mod_enable="$(apachectl -M)"
+    httpd_check="$(echo "$mod_enable" | grep "$n")"
+    if [ -z "$httpd_check" ]
+    then
+      printf '\033[1mWARN: \033[4m%s\033[0m\033[1m needs to be enabled\033[0m\n' "$n"
+      httpmod_miss=1
+    else
+      printf 'INFO: \033[4m%s\033[0m found in enabled modules\n' "$n"
+    fi
+  done
+else
+  printf '\033[1mERROR: Unable to check enabled apache server modules, apache http server not found.\033[0m\n'
+fi
+
+# Check if python version is high enough and check existence of required python modules
+if echo "$checked" | grep -q 'python3'
+then
+  if python3 --version | grep -q '3\.[7-9]\|3\.[1-9]\+[0-9]\+'
+  then
+    printf "\033[0mINFO: Python3 version met the minimum requirement\n"
+    printf "\033[0mChecking python modules...\n"
+    python3 "$pymod_check"
+    exit_code=$?
+    if [ $exit_code -ne 0 ]
+    then
+      printf "\033[1mWARN: Python module check with exit code of %s. See above for debug.\033[0m\n" "$exit_code"
+      pymod_miss=1
+    fi
+  else
+    printf "\033[1mWARN: Python version is too low, you should upgrade Python to at least version 3.7\033[0m\n"
+    py_low=1
+  fi
+fi
+if [ $cmd_miss -eq 1 ] || [ $httpmod_miss -eq 1 ] || [ $pymod_miss -eq 1 ] || [ $py_low -eq 1 ]
+then
+  exit 1
+else
+  exit 0
+fi
