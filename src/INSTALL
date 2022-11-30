@@ -17,11 +17,24 @@ In order to use Web Interface you also need:
 * Apache HTTP Server version >= 2.x.x
 * Apache module `mod_wsgi`
 
-# Before install (Skip for auto install)
+# Install
+1. Create and move to new directory: `mkdir build; cd build`
+2. Run `auto-install.sh`: `../auto-install.sh`
+2.1. In case you install certain software in other way, you may want to skip
+    checking the relevant command with this script. This can be achieved by
+    supplying `--ignore` option with the related command name. This is useful
+    for manually installed PostGreSQL and official install on some OS.
+2.2. If you already run `env_check` separately or have manually checked the
+    requirement, you may want to skip the environment check with the
+    `auto-install.sh`. You can do this by supplying `--skip-check` option.
+2.3. Alternatively, you may want to install manually, check 'Manual Install'
+    section for instruction.
+
+# Manual Install
+## Before install
 1. Run `env_check` to check if all required modules are installed (and enabled).
 1.1. If you are running on a custom OS where `env_check` cannot detect the
     correct OS, you may specify this with `-S` or `--system` option.
-
 
 
 #######################HAN#MINOR#2022-2023##DATA#SCIENCES#######################

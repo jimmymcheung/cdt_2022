@@ -4,6 +4,10 @@
 # Copyright © 2022 CDT project
 # Author: Jiaming Zhang
 # Works on Python3 >= 3.6
+# Noted that if installing 'psycopg2' failed with error
+# "Error: pg_config executable not found.", you may need to install 'libpq-dev'
+# if installing 'libpq-dev' does not resolve the problem, you need to specify
+# the $PATH as referred in the error message or the psycopg2 documentation.
 import sys
 import xml.etree.ElementTree
 
@@ -34,6 +38,11 @@ subMod_list = """<?xml version="1.0"?>
         <pipName>nltk</pipName>
         <parent>nltk.stem.snowball</parent>
         <child>SnowballStemmer</child>
+    </module>
+    <module>
+        <pipName>configparser</pipName>
+        <parent>configparser</parent>
+        <child>ConfigParser</child>
     </module>
 </modlist>"""
 err_count = 0
