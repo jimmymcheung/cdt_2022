@@ -7,7 +7,7 @@
 import sys
 import xml.etree.ElementTree
 
-mod_list = ["requests", "pandas", "nltk"]
+mod_list = ["requests", "pandas", "nltk", "psycopg2"]
 subMod_list = """<?xml version="1.0"?>
 <modlist>
     <module>
@@ -68,7 +68,7 @@ for e in subMod_xml:
 
 if err_count > 0:
     if err_count == 1:
-        print("\033[4mINFO: " + str(err_count) + " module is missing.")
+        print("\033[4mINFO: " + str(err_count) + " (sub)module is missing.\033[0m")
     elif err_count > 1:
-        print("\033[4mINFO: " + str(err_count) + " (sub)modules are missing.")
+        print("\033[4mINFO: " + str(err_count) + " (sub)modules are missing.\033[0m")
     sys.exit(1)
