@@ -67,4 +67,8 @@ for e in subMod_xml:
 
 
 if err_count > 0:
+    if err_count == 1:
+        print("\033[4mINFO: " + str(err_count) + " module is missing.")
+    elif err_count > 1:
+        print("\033[4mINFO: " + str(err_count) + " (sub)modules are missing.")
     sys.exit(1)
