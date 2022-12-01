@@ -230,5 +230,4 @@ def main(argv):
 
 # test
 if __name__ == '__main__':
-    # test connection PostGreSQL
     main(sys.argv[1:])
