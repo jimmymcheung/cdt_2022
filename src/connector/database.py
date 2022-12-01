@@ -66,16 +66,21 @@ def connect(filename='database.ini', section='postgresql'):
 
 
 # read from postgres
-def pg_read(select, conf='database.ini', sec='postgresql'):
-    """ read from the PostgreSQL database server """
+def pg_read(select, conf='database.ini', sec='postgresql', quite=False):
+    """ read from the PostgreSQL database
+
+    :param: select - str, conf - str, sec - str, quite - boolean
+    :return: reads
+    """
     conn = None
-    err_code = 0
+    status = 0
     try:
         # read connection parameters
         params = config(filename=conf, section=sec)
 
         # connect to the PostgreSQL server
-        print('Connecting to the PostgreSQL database...')
+        if quite is False:
+            print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
 
         # create a cursor
@@ -89,29 +94,35 @@ def pg_read(select, conf='database.ini', sec='postgresql'):
         cur.close()
         return reads
     except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-        err_code = 1
+        status = 1
+        if quite is False:
+            print(error)
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
+            if quite is False:
+                print('Database connection closed.')
 
-        if err_code != 0:
+        if status != 0:
             import sys
-            sys.exit(err_code)
+            sys.exit(status)
 
 
 # write to postgres
-def pg_write(insert, conf='database.ini', sec='postgresql', quite=False):
-    """ writes to the PostgreSQL database server """
+def pg_write(insert, conf='database.ini', sec='postgresql', quite=False, out=False):
+    """ writes to the PostgreSQL database server
+
+    :param: insert - str, conf - str, sec - str, quite - boolean, out - boolean
+    """
     conn = None
-    err_code = 0
+    status = 0
     try:
         # read connection parameters
         params = config(filename=conf, section=sec)
 
         # connect to the PostgreSQL server
-        print('Connecting to the PostgreSQL database...')
+        if quite is False:
+            print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
 
         # create a cursor
@@ -120,38 +131,34 @@ def pg_write(insert, conf='database.ini', sec='postgresql', quite=False):
         # write to database
         cur.execute('INSERT INTO ' + insert + ';')
         w = cur.fetchone()
-
         # close the communication with the PostgreSQL
         cur.close()
 
-        # check if written successfully
-        if w and (quite is False):
-            print('\033[0mINFO: Successfully written to database.')
-        elif w and (quite is True):
-            status = 0
-            return status
-        elif (not w) and (quite is False):
-            print('\033[1mERROR: The write action was failed. \033[0m')
-            sys.exit(1)
-        else:
-            status = 1
-            return status
+        if (quite is False) or (out is True):
+            print(str(w))
+
     except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-        err_code = 1
+        status = 1
+        if quite is False:
+            print(error)
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
-        if err_code != 0:
+            if quite is False:
+                print('Database connection closed.')
+        if status != 0:
             import sys
-            sys.exit(err_code)
+            sys.exit(status)
 
 
 # other operation
-def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False):
-    """ other operation with the PostgreSQL database server """
-    err_code = 0
+def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False, out=True):
+    """ other operation with the PostgreSQL database
+
+    :param: opr - str, conf - str, sec - str, quite - boolean, out - boolean
+    :return: reads
+    """
+    status = 0
     conn = None
     if not opr:
         import sys
@@ -163,7 +170,8 @@ def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False):
         params = config(filename=conf, section=sec)
 
         # connect to the PostgreSQL server
-        print('Connecting to the PostgreSQL database...')
+        if quite is False:
+            print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
 
         # create a cursor
@@ -175,32 +183,21 @@ def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False):
         # close the communication with the PostgreSQL
         cur.close()
 
-        if quite is True:
+        if (quite is False) or (out is True):
             print(str(o))
-        # if o and (quite is False):
-        #     print('\033[0m' + str(o))
-        # elif o and (quite is True):
-        #     status = 0
-        #     return status
-        # elif (not o) and (quite is False):
-        #     import sys
-        #     print('\033[1mERROR: The given operation was failed. \033[0m')
-        #     sys.exit(1)
-        # else:
-        #     status = 1
-        #     return status
 
     except (Exception, psycopg2.DatabaseError) as error:
-        err_code = 1
+        status = 1
         if quite is False:
             print(error)
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
-        if err_code != 0:
+            if quite is False:
+                print('Database connection closed.')
+        if status != 0:
             import sys
-            sys.exit(err_code)
+            sys.exit(status)
 
 
 # get option and input
@@ -209,11 +206,16 @@ def main(argv):
     conf = 'database.ini'
     database = 'postgresql'
     quite = False
+    out = 'default'
     read = ''
     write = ''
-    usage = '\033[5mUsage:\033[0m\n   \033[1mdatabase.py\033[0m -o <SQL operation> -c <config file> -d <database section> -q -r <READ operation> -w <WRITE operation>'
+    usage = '\033[5mUsage:\033[0m\n   \033[1mdatabase.py\033[0m [-o|--opr'\
+            ' \033[4mSQL operation\033[0m] [-c|--conf \033[4mconfig file'\
+            '\033[0m] [-d|--db \033[4mdatabase section\033[0m] [-q|--quite]'\
+            ' [-Q|--Quite] [-r \033[4mSELECT operation\033[0m] [-w \033[4m'\
+            'INSERT INTO operation\033[0m]'
     try:
-        opts, args = getopt.getopt(argv, "ho:c:d:qr:w:", ["help", "opr=", "conf=", "db=", "quite"])
+        opts, args = getopt.getopt(argv, "ho:c:d:qQr:w:", ["help", "opr=", "conf=", "db=", "quite", "Quite"])
     except getopt.GetoptError:
         print(usage)
         sys.exit(2)
@@ -229,6 +231,9 @@ def main(argv):
             database = arg
         elif opt in ("-q", "--quite"):
             quite = True
+        elif opt in ("-Q", "--Quite"):
+            quite = True
+            out = False
         elif opt == '-r':
             read = arg
         elif opt == '-w':
@@ -238,10 +243,15 @@ def main(argv):
         readout = pg_read(select=read, conf=conf, sec=database)
         return readout
     if write:
-        write_out = pg_write(insert=write, conf=conf, sec=database, quite=quite)
-        return write_out
+        if out == 'default':
+            pg_write(insert=write, conf=conf, sec=database, quite=quite)
+        else:
+            pg_write(insert=write, conf=conf, sec=database, quite=quite, out=out)
     if operation != '':
-        pg_handle(operation, conf=conf, sec=database, quite=quite)
+        if out == 'default':
+            pg_handle(operation, conf=conf, sec=database, quite=quite)
+        else:
+            pg_handle(operation, conf=conf, sec=database, quite=quite, out=out)
     else:
         connect(filename=conf, section=database)
 
