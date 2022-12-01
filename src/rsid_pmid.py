@@ -2,11 +2,12 @@
 
 # RSID local query for PMID
 # Copyright © 2022 CDT project
-# Author: Jara Laureijssen, Sven Lukassen
+# Author: Jara Laureijssen, Sven Lukassen, Jiaming Zhang
 # See also: 'search_rsid.py' for querying on ClinVar Server.
 
 from lxml import etree as et
-
+import getopt
+import sys
 
 def read_gt(filename):
     """Reads if genotype transcript file, all rules with # will not be read
@@ -73,9 +74,36 @@ def fn2(rsid, fileInput):
     return dictionary
 
 
+def opt(argv):
+    """Get command line options
+
+    :param: argv - any
+    :return: rsidlist, iidlist
+    """
+    fileInput = ''
+    usage = '\033[5mUsage:\033[0m\n   \033[1mrsid_pmid.py\033[0m -g|--gt-file <gt-file>'
+    try:
+        opts, args = getopt.getopt(argv, "hf:", ["help", "gt-file="])
+    except getopt.GetoptError:
+        import sys
+        print(usage)
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt in ('-h', "--help"):
+            import sys
+            print(usage)
+            sys.exit(0)
+        elif opt in ("-f", "--gt-file"):
+            fileInput = arg
+    # operation call
+    return fileInput
+
+
 if __name__ == '__main__':
-    fileInput = input("PathName for GT File: \n")
-    clinvarfile = ("../../clinvar/ClinVarFullRelease_2022-10.xml")
+    fileInput = opt(sys.argv[1:])
+    if not fileInput:
+        fileInput = input("PathName for GT File: \n")
+    clinvarfile = "../../clinvar/ClinVarFullRelease_2022-10.xml"
     rsidlist, iidlist = read_gt(fileInput)
     dictionary = fn2(rsidlist, clinvarfile)
 
