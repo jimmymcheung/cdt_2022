@@ -69,6 +69,7 @@ def connect(filename='database.ini', section='postgresql'):
 def pg_read(select, conf='database.ini', sec='postgresql'):
     """ read from the PostgreSQL database server """
     conn = None
+    err_code = 0
     try:
         # read connection parameters
         params = config(filename=conf, section=sec)
@@ -81,24 +82,30 @@ def pg_read(select, conf='database.ini', sec='postgresql'):
         cur = conn.cursor()
 
         # read from database
-        # needs to be changed
-        reads = cur.execute('SELECT ' + select + ';')
+        cur.execute('SELECT ' + select + ';')
+        reads = cur.fetchone()
 
         # close the communication with the PostgreSQL
         cur.close()
         return reads
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+        err_code = 1
     finally:
         if conn is not None:
             conn.close()
             print('Database connection closed.')
+
+        if err_code != 0:
+            import sys
+            sys.exit(err_code)
 
 
 # write to postgres
 def pg_write(insert, conf='database.ini', sec='postgresql', quite=False):
     """ writes to the PostgreSQL database server """
     conn = None
+    err_code = 0
     try:
         # read connection parameters
         params = config(filename=conf, section=sec)
@@ -111,8 +118,8 @@ def pg_write(insert, conf='database.ini', sec='postgresql', quite=False):
         cur = conn.cursor()
 
         # write to database
-        # needs to be changed
-        w = cur.execute('INSERT INTO ' + insert + ';')
+        cur.execute('INSERT INTO ' + insert + ';')
+        w = cur.fetchone()
 
         # close the communication with the PostgreSQL
         cur.close()
@@ -131,15 +138,20 @@ def pg_write(insert, conf='database.ini', sec='postgresql', quite=False):
             return status
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+        err_code = 1
     finally:
         if conn is not None:
             conn.close()
             print('Database connection closed.')
+        if err_code != 0:
+            import sys
+            sys.exit(err_code)
 
 
 # other operation
 def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False):
     """ other operation with the PostgreSQL database server """
+    err_code = 0
     conn = None
     if not opr:
         import sys
@@ -158,31 +170,37 @@ def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False):
         cur = conn.cursor()
 
         # operation with database
-        # needs to be changed
-        o = cur.execute(opr)
+        cur.execute(opr)
+        o = cur.fetchone()
         # close the communication with the PostgreSQL
         cur.close()
 
-        # check if written successfully
-        if o and (quite is False):
-            print('\033[0mINFO: Successfully written to database.')
-        elif o and (quite is True):
-            status = 0
-            return status
-        elif (not o) and (quite is False):
-            import sys
-            print('\033[1mERROR: The write action was failed. \033[0m')
-            sys.exit(1)
-        else:
-            status = 1
-            return status
+        if quite is True:
+            print(str(o))
+        # if o and (quite is False):
+        #     print('\033[0m' + str(o))
+        # elif o and (quite is True):
+        #     status = 0
+        #     return status
+        # elif (not o) and (quite is False):
+        #     import sys
+        #     print('\033[1mERROR: The given operation was failed. \033[0m')
+        #     sys.exit(1)
+        # else:
+        #     status = 1
+        #     return status
 
     except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
+        err_code = 1
+        if quite is False:
+            print(error)
     finally:
         if conn is not None:
             conn.close()
             print('Database connection closed.')
+        if err_code != 0:
+            import sys
+            sys.exit(err_code)
 
 
 # get option and input
