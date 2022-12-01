@@ -66,7 +66,7 @@ def connect(filename='database.ini', section='postgresql'):
 
 
 # read from postgres
-def pg_read(conf='database.ini', sec='postgresql'):
+def pg_read(select, conf='database.ini', sec='postgresql'):
     """ read from the PostgreSQL database server """
     conn = None
     try:
@@ -82,7 +82,7 @@ def pg_read(conf='database.ini', sec='postgresql'):
 
         # read from database
         # needs to be changed
-        reads = cur.execute('')
+        reads = cur.execute('SELECT ' + select + ';')
 
         # close the communication with the PostgreSQL
         cur.close()
@@ -96,7 +96,7 @@ def pg_read(conf='database.ini', sec='postgresql'):
 
 
 # write to postgres
-def pg_write(conf='database.ini', sec='postgresql', quite=False):
+def pg_write(insert, conf='database.ini', sec='postgresql', quite=False):
     """ writes to the PostgreSQL database server """
     conn = None
     try:
@@ -112,7 +112,7 @@ def pg_write(conf='database.ini', sec='postgresql', quite=False):
 
         # write to database
         # needs to be changed
-        w = cur.execute('')
+        w = cur.execute('INSERT INTO ' + insert + ';')
 
         # close the communication with the PostgreSQL
         cur.close()
@@ -217,10 +217,10 @@ def main(argv):
             write = arg
     # operation call
     if read:
-        readout = pg_read(conf=conf, sec=database)
+        readout = pg_read(select=read, conf=conf, sec=database)
         return readout
     if write:
-        write_out = pg_write(conf=conf, sec=database, quite=quite)
+        write_out = pg_write(insert=write, conf=conf, sec=database, quite=quite)
         return write_out
     if operation != '':
         pg_handle(operation, conf=conf, sec=database, quite=quite)
