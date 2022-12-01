@@ -29,6 +29,15 @@ In order to use Web Interface you also need:
     `auto-install.sh`. You can do this by supplying `--skip-check` option.
 2.3. Alternatively, you may want to install manually, check 'Manual Install'
     section for instruction.
+3. Create database configuration file `connector/database.ini`, example:
+```ini
+[postgresql]
+host=localhost
+database=db1
+user=postgres
+password=password
+port=5432
+```
 
 # Manual Install
 ## Before install

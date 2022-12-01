@@ -1,5 +1,5 @@
 # ini configuration file
-src/connector/*.ini
+*/connector/*.ini
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
