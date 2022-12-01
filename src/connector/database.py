@@ -7,7 +7,6 @@ import getopt
 import sys
 import psycopg2
 from configparser import ConfigParser
-import config
 # pre-request: create database in PostGreSQL
 # CREATE DATABASE db_name;
 #
@@ -192,6 +191,8 @@ def main(argv):
     conf = 'database.ini'
     database = 'postgresql'
     quite = False
+    read = ''
+    write = ''
     usage = '\033[5mUsage:\033[0m\n   \033[1mdatabase.py\033[0m -o <SQL operation> -c <config file> -d <database section> -q -r <READ operation> -w <WRITE operation>'
     try:
         opts, args = getopt.getopt(argv, "ho:c:d:qr:w:", ["help", "opr=", "conf=", "db=", "quite"])
@@ -221,7 +222,7 @@ def main(argv):
     if write:
         write_out = pg_write(conf=conf, sec=database, quite=quite)
         return write_out
-    if operation is not '':
+    if operation != '':
         pg_handle(operation, conf=conf, sec=database, quite=quite)
     else:
         connect(filename=conf, section=database)
