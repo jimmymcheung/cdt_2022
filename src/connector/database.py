@@ -34,7 +34,10 @@ def config(filename='database.ini', section='postgresql'):
 
 
 def connect(filename='database.ini', section='postgresql'):
-    """ Connect to the PostgreSQL database server """
+    """ Connect to the PostgreSQL database server
+
+    :param: filename - str, section - str
+    """
     conn = None
     try:
         # read connection parameters
