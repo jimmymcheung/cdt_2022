@@ -34,12 +34,12 @@ def config(filename='database.ini', section='postgresql'):
     return db
 
 
-def connect():
+def connect(filename='database.ini', section='postgresql'):
     """ Connect to the PostgreSQL database server """
     conn = None
     try:
         # read connection parameters
-        params = config()
+        params = config(filename=filename, section=section)
 
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
@@ -188,11 +188,11 @@ def pg_handle(opr, conf='database.ini', sec='postgresql', quite=False):
 
 # get option and input
 def main(argv):
-    operation = 'SELECT version()'
+    operation = ''
     conf = 'database.ini'
     database = 'postgresql'
     quite = False
-    usage = '\033[5mUsage:\033[0m\n   \033[1mdatabase.py\033[0m -o <SQL operation> -c <config file> -d <database section> -q'
+    usage = '\033[5mUsage:\033[0m\n   \033[1mdatabase.py\033[0m -o <SQL operation> -c <config file> -d <database section> -q -r <READ operation> -w <WRITE operation>'
     try:
         opts, args = getopt.getopt(argv, "ho:c:d:qr:w:", ["help", "opr=", "conf=", "db=", "quite"])
     except getopt.GetoptError:
@@ -223,6 +223,8 @@ def main(argv):
         return write_out
     if operation is not '':
         pg_handle(operation, conf=conf, sec=database, quite=quite)
+    else:
+        connect(filename=conf, section=database)
 
 
 # test
